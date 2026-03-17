@@ -54,16 +54,10 @@
           <li><a href="#contact" class="nav__link">Contact</a></li>
         </ul>
       </nav>
-
-      <div class="header-actions">
-        <button class="btn btn-outline" data-scroll-target="#login">Login as Patient</button>
-        <button class="btn btn-primary" data-scroll-target="#login">Login as Doctor</button>
-        <button class="nav-toggle" aria-label="Toggle navigation">
-          <span></span>
-          <span></span>
-        </button>
-      </div>
-    </div>
+     
+        <a class="btn btn-primary" href="auth/patient-login.html">Login as Patient</a>
+        <a class="btn btn-primary" href="auth/doctor-login.html">Login as Doctor</a>
+        
   </header>
 
   <main>
@@ -94,55 +88,112 @@
           </div>
         </div>
         <div class="hero__right">
-          <div class="hero-dashboard">
-            <div class="hero-dashboard__header">
-              <div class="status-pill status-pill--online">Live Monitoring</div>
-              <div class="status-meta">
-                <span class="dot dot--green"></span> 38 patients online
+          <div class="hero-slider" aria-label="Hero highlights">
+            <div class="hero-slider__track" id="heroSliderTrack">
+              <!-- Slide 1: Monitoring dashboard -->
+              <div class="hero-slide">
+                <div class="hero-dashboard">
+                  <div class="hero-dashboard__header">
+                    <div class="status-pill status-pill--online">Live Monitoring</div>
+                    <div class="status-meta">
+                      <span class="dot dot--green"></span> 38 patients online
+                    </div>
+                  </div>
+                  <div class="hero-dashboard__body">
+                    <div class="vitals-grid">
+                      <div class="vital-card">
+                        <p class="vital-label">Temperature</p>
+                        <p class="vital-value">37.4°C</p>
+                        <p class="vital-meta">Normal</p>
+                      </div>
+                      <div class="vital-card">
+                        <p class="vital-label">Heart Rate</p>
+                        <p class="vital-value">92 bpm</p>
+                        <p class="vital-meta">Slightly elevated</p>
+                      </div>
+                      <div class="vital-card">
+                        <p class="vital-label">Oxygen Level</p>
+                        <p class="vital-value">96%</p>
+                        <p class="vital-meta">Stable</p>
+                      </div>
+                      <div class="vital-card vital-card--alert">
+                        <p class="vital-label">Suffering Score</p>
+                        <p class="vital-value">8.4</p>
+                        <p class="vital-meta">High priority</p>
+                      </div>
+                    </div>
+                    <div class="hero-dashboard__timeline">
+                      <p class="timeline-title">Live Alerts</p>
+                      <ul class="timeline-list">
+                        <li class="timeline-item">
+                          <span class="dot dot--red"></span>
+                          <span class="timeline-text">ICU-04 • Respiratory distress alert triggered</span>
+                          <span class="timeline-time">Just now</span>
+                        </li>
+                        <li class="timeline-item">
+                          <span class="dot dot--orange"></span>
+                          <span class="timeline-text">Ward-12 • High suffering score trend detected</span>
+                          <span class="timeline-time">2 min ago</span>
+                        </li>
+                        <li class="timeline-item">
+                          <span class="dot dot--green"></span>
+                          <span class="timeline-text">ER-03 • Pain management plan updated</span>
+                          <span class="timeline-time">8 min ago</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
-            <div class="hero-dashboard__body">
-              <div class="vitals-grid">
-                <div class="vital-card">
-                  <p class="vital-label">Temperature</p>
-                  <p class="vital-value">37.4°C</p>
-                  <p class="vital-meta">Normal</p>
-                </div>
-                <div class="vital-card">
-                  <p class="vital-label">Heart Rate</p>
-                  <p class="vital-value">92 bpm</p>
-                  <p class="vital-meta">Slightly elevated</p>
-                </div>
-                <div class="vital-card">
-                  <p class="vital-label">Oxygen Level</p>
-                  <p class="vital-value">96%</p>
-                  <p class="vital-meta">Stable</p>
-                </div>
-                <div class="vital-card vital-card--alert">
-                  <p class="vital-label">Suffering Score</p>
-                  <p class="vital-value">8.4</p>
-                  <p class="vital-meta">High priority</p>
+
+              <!-- Slide 2: AI doctors illustration -->
+              <div class="hero-slide">
+                <div class="hero-illustration hero-illustration--doctors">
+                  <div class="hero-illustration__badge">AI Assisted Medical Monitoring</div>
+                  <h3 class="hero-illustration__title">Real-Time AI Insights</h3>
+                  <p class="hero-illustration__text">
+                    Doctors receive real-time insights from patient sensors to prioritize treatment and save lives.
+                  </p>
+                  <img
+                    class="hero-slide-image"
+                    src="assets/hero-slide-2.png"
+                    alt="Cartoon doctors with patient monitoring and healthcare icons"
+                  />
                 </div>
               </div>
-              <div class="hero-dashboard__timeline">
-                <p class="timeline-title">Live Alerts</p>
-                <ul class="timeline-list">
-                  <li class="timeline-item">
-                    <span class="dot dot--red"></span>
-                    <span class="timeline-text">ICU-04 • Respiratory distress alert triggered</span>
-                    <span class="timeline-time">Just now</span>
-                  </li>
-                  <li class="timeline-item">
-                    <span class="dot dot--orange"></span>
-                    <span class="timeline-text">Ward-12 • High suffering score trend detected</span>
-                    <span class="timeline-time">2 min ago</span>
-                  </li>
-                  <li class="timeline-item">
-                    <span class="dot dot--green"></span>
-                    <span class="timeline-text">ER-03 • Pain management plan updated</span>
-                    <span class="timeline-time">8 min ago</span>
-                  </li>
-                </ul>
+
+              <!-- Slide 3: Patient monitoring illustration -->
+              <div class="hero-slide">
+                <div class="hero-graph">
+                  <div class="hero-graph__top">
+                    <div>
+                      <p class="hero-graph__title">Vitals Trend</p>
+                      <p class="hero-graph__subtitle">Graphs & alerts in one view</p>
+                    </div>
+                    <div class="hero-graph__pill">Last 30 min</div>
+                  </div>
+                  <div class="hero-graph__chart" aria-hidden="true">
+                    <div class="hero-graph__grid"></div>
+                    <div class="hero-graph__line"></div>
+                    <div class="hero-graph__bars">
+                      <span></span><span></span><span></span><span></span><span></span>
+                    </div>
+                  </div>
+                  <div class="hero-graph__stats">
+                    <div class="hero-graph__stat">
+                      <span class="hero-graph__label">Heart Rate</span>
+                      <span class="hero-graph__value">88 bpm</span>
+                    </div>
+                    <div class="hero-graph__stat">
+                      <span class="hero-graph__label">SpO₂</span>
+                      <span class="hero-graph__value">97%</span>
+                    </div>
+                    <div class="hero-graph__stat hero-graph__stat--alert">
+                      <span class="hero-graph__label">Alert</span>
+                      <span class="hero-graph__value">Stable</span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
