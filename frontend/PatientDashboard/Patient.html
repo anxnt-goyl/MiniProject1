@@ -1,207 +1,144 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MediTrack — Patient Dashboard</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="Patient.css" />
-  </head>
-  <body>
-    <div class="bg"></div>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>MediTrack – Patient Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="Patient.css"/>
+</head>
+<body>
 
-    <header class="topbar">
-      <div class="container topbar__inner">
-        <div class="brand">
-          <div class="brand__mark" aria-hidden="true">MT</div>
-          <div class="brand__text">
-            <div class="brand__title">MediTrack</div>
-            <div class="brand__subtitle">Patient Suffering Intelligence System</div>
-          </div>
-        </div>
+<!-- NAV -->
+<nav>
+  <a class="nav-brand" href="#">
+    <div class="nav-logo">MT</div>
+    <div>
+      <div class="nav-title">MediTrack</div>
+      <div class="nav-sub">Patient Suffering Intelligence System</div>
+    </div>
+  </a>
+  <div class="nav-right">
+    <div class="guest-chip">
+      <div class="guest-avatar">MT</div>
+      <span class="guest-name">Guest</span>
+    </div>
+    <button class="btn-logout">Logout</button>
+  </div>
+</nav>
 
-        <div class="topbar__right">
-          <div class="nav-user">
-            <div class="nav-user__profile">
-              <div class="nav-user__avatar" aria-hidden="true"></div>
-              <span class="nav-user__name" id="loggedInName">Guest</span>
-            </div>
-            <button id="logoutBtn" class="btn btn--outline-danger" type="button">Logout</button>
-          </div>
-        </div>
+<!-- MAIN -->
+<main>
+  <div class="page-header">
+    <h1>Patient Dashboard</h1>
+    <p>Real-time status &amp; queue insights</p>
+  </div>
+
+  <div class="grid">
+
+    <!-- Patient Info -->
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">Patient Info</span>
+        <span class="badge badge-red">Critical</span>
       </div>
-    </header>
-
-    <main class="container content">
-      <div class="page-head">
-        <h1 class="page-head__title">Patient Dashboard</h1>
-        <p class="page-head__subtitle muted">Real-time status &amp; queue insights</p>
+      <div class="info-rows">
+        <div class="info-row"><span class="info-label">Name</span><span class="info-value">Aarav Sharma</span></div>
+        <div class="info-row"><span class="info-label">Patient ID</span><span class="info-value">MT-PAT-10429</span></div>
+        <div class="info-row"><span class="info-label">Token Number</span><span class="info-value">T-17</span></div>
       </div>
-
-      <section id="dashboardScreen" class="grid" aria-live="polite">
-        <article class="card card--info">
-          <div class="card__header">
-            <h2>Patient Info</h2>
-            <span id="patientStatusPill" class="pill pill--ok" title="Overall patient status">
-              Normal
-            </span>
-          </div>
-
-          <div class="card__body">
-            <dl class="kv">
-              <div class="kv__row">
-                <dt>Name</dt>
-                <dd id="patientName">—</dd>
-              </div>
-              <div class="kv__row">
-                <dt>Patient ID</dt>
-                <dd id="patientId">—</dd>
-              </div>
-              <div class="kv__row">
-                <dt>Token Number</dt>
-                <dd id="tokenNumber">—</dd>
-              </div>
-            </dl>
-
-            <div class="card__footer">
-              <button id="requestHelpBtn" class="btn btn--danger" type="button" hidden>
-                Request Help
-              </button>
-              <div class="hint muted" id="helpHint">Visible only in critical status</div>
-            </div>
-          </div>
-        </article>
-
-        <article class="card card--queue">
-          <div class="card__header">
-            <h2>Waiting Details</h2>
-            <span class="badge" id="queueBadge">Queue Active</span>
-          </div>
-          <div class="card__body">
-            <div class="stats">
-              <div class="stat">
-                <div class="stat__label">Waiting Time</div>
-                <div class="stat__value">
-                  <span id="waitingMinutes">—</span><span class="stat__unit">min</span>
-                </div>
-              </div>
-              <div class="stat">
-                <div class="stat__label">Estimated Time</div>
-                <div class="stat__value" id="estimatedTime">—</div>
-              </div>
-            </div>
-
-            <div class="meter" aria-label="Waiting time indicator">
-              <div id="waitBar" class="meter__bar" style="width: 0%"></div>
-            </div>
-            <p class="muted small" id="waitNote">—</p>
-          </div>
-        </article>
-
-        <article class="card card--pss">
-          <div class="card__header">
-            <h2>PSS Score</h2>
-            <span id="pssLabel" class="pill pill--ok">Normal</span>
-          </div>
-
-          <div class="card__body pss">
-            <div class="pss__score" id="pssScore">—</div>
-            <div class="pss__scale muted">
-              <span>0</span>
-              <span>50</span>
-              <span>100</span>
-            </div>
-            <div class="pss__bar" role="img" aria-label="PSS severity bar">
-              <div id="pssFill" class="pss__fill" style="width: 0%"></div>
-            </div>
-            <p class="muted small" id="pssMessage">—</p>
-          </div>
-        </article>
-
-        <article class="card card--sensors">
-          <div class="card__header">
-            <h2>Sensor Data</h2>
-            <span class="badge">Real-time</span>
-          </div>
-          <div class="card__body">
-            <div class="stats stats--3">
-              <div class="stat">
-                <div class="stat__label">Blood Pressure (BP)</div>
-                <div class="stat__value stat__value--md">
-                  <span id="bpValue">—</span><span class="stat__unit">mmHg</span>
-                </div>
-              </div>
-              <div class="stat">
-                <div class="stat__label">Temperature</div>
-                <div class="stat__value stat__value--md">
-                  <span id="tempValue">—</span><span class="stat__unit">°C</span>
-                </div>
-              </div>
-              <div class="stat">
-                <div class="stat__label">Heart Rate</div>
-                <div class="stat__value stat__value--md">
-                  <span id="hrValue">—</span><span class="stat__unit">bpm</span>
-                </div>
-              </div>
-            </div>
-            <p class="muted small" id="sensorNote">—</p>
-          </div>
-        </article>
-
-        <article class="card card--upload">
-          <div class="card__header">
-            <h2>Upload Documents</h2>
-            <span class="badge">PDF / Images</span>
-          </div>
-          <div class="card__body">
-            <div class="upload">
-              <input
-                id="fileInput"
-                class="upload__input"
-                type="file"
-                accept="application/pdf,image/*"
-              />
-              <div class="upload__row">
-                <button id="fileChooseBtn" class="btn" type="button">Choose File</button>
-                <div class="upload__meta">
-                  <div class="upload__label muted">Selected file</div>
-                  <div id="uploadedFileName" class="upload__name">No file selected</div>
-                </div>
-              </div>
-              <p class="muted small">
-                Files stay on your device.
-              </p>
-            </div>
-          </div>
-        </article>
-
-        <article class="card card--messages">
-          <div class="card__header">
-            <h2>Messages</h2>
-            <span class="badge badge--info">Live</span>
-          </div>
-          <div class="card__body">
-            <ul class="messages" id="messagesList" aria-label="System messages"></ul>
-          </div>
-        </article>
-      </section>
-    </main>
-
-    <div id="loadingOverlay" class="overlay" aria-hidden="true">
-      <div class="overlay__panel" role="status" aria-live="polite">
-        <div class="spinner" aria-hidden="true"></div>
-        <div class="overlay__text">
-          <div class="overlay__title">Loading patient data</div>
-          <div class="overlay__subtitle muted">Connecting to MediTrack services…</div>
-        </div>
+      <div class="card-footer">
+        <button class="btn-help">Request Help</button>
+        <span class="critical-note">Visible only in critical status</span>
       </div>
     </div>
 
-    <script src="Patient.js" defer></script>
-  </body>
+    <!-- Waiting Details -->
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">Waiting Details</span>
+        <span class="badge badge-green">Queue Active</span>
+      </div>
+      <div class="wait-metrics">
+        <div class="wait-metric">
+          <div class="wait-metric-label">Waiting Time</div>
+          <div class="wait-metric-value">32 <span class="wait-unit">min</span></div>
+        </div>
+        <div class="wait-metric">
+          <div class="wait-metric-label">Estimated Time</div>
+          <div class="wait-metric-value" id="countdown" style="font-variant-numeric:tabular-nums;">06:35</div>
+        </div>
+      </div>
+      <div class="wait-bar-wrap"><div class="wait-bar" id="wait-bar"></div></div>
+      <div class="wait-note">Higher-than-usual wait time. Please remain seated and stay hydrated.</div>
+    </div>
+
+    <!-- Sensor Data -->
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">Sensor Data</span>
+        <span class="badge badge-blue">Real-time</span>
+      </div>
+      <div class="sensor-grid">
+        <div class="sensor-chip">
+          <div class="sensor-label">Blood Pressure (BP)</div>
+          <div class="sensor-value" id="bp">155/87 <span class="sensor-unit">mmHg</span></div>
+        </div>
+        <div class="sensor-chip">
+          <div class="sensor-label">Temperature</div>
+          <div class="sensor-value" id="temp">39.2 <span class="sensor-unit">°C</span></div>
+        </div>
+        <div class="sensor-chip">
+          <div class="sensor-label">Heart Rate</div>
+          <div class="sensor-value" id="hr">74 <span class="sensor-unit">bpm</span></div>
+        </div>
+      </div>
+      <div class="sensor-note">Elevated vitals detected. Staff may monitor you more closely.</div>
+    </div>
+
+    <!-- Upload Documents -->
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">Upload Documents</span>
+        <span class="badge badge-green">PDF / Images</span>
+      </div>
+      <label class="upload-area" id="upload-area" for="real-file-input">
+        <span class="btn-file">Choose File</span>
+        <div class="file-info">
+          <span class="file-info-label">Selected file</span>
+          <span class="file-info-name" id="file-name-display">No file selected</span>
+        </div>
+      </label>
+      <input type="file" id="real-file-input" accept=".pdf,image/*" style="display:none;" />
+      <button class="btn-upload" id="upload-btn" disabled>Upload Document</button>
+    </div>
+
+    <!-- Success Popup -->
+    <div class="popup-overlay" id="popup-overlay">
+      <div class="popup-box">
+        <div class="popup-icon">✓</div>
+        <div class="popup-title">Document Uploaded!</div>
+        <div class="popup-msg">Your document has been successfully uploaded and sent for review.</div>
+        <button class="popup-close" id="popup-close">Done</button>
+      </div>
+    </div>
+
+    <!-- Messages (full width) -->
+    <div class="card" style="grid-column: 1 / -1;">
+      <div class="card-header">
+        <span class="card-title">Messages</span>
+        <span class="badge badge-green">Live</span>
+      </div>
+      <div class="messages-list" id="messages-list">
+        <div class="msg-item"><span class="msg-text">Doctor will attend you soon.</span><span class="msg-time">06:04</span></div>
+        <div class="msg-item"><span class="msg-text">High waiting time detected. We apologize for the inconvenience.</span><span class="msg-time">06:04</span></div>
+        <div class="msg-item"><span class="msg-text">Your vitals have been reviewed by the triage team.</span><span class="msg-time">05:58</span></div>
+      </div>
+    </div>
+
+  </div><!-- /grid -->
+</main>
+
+<script src="Patient.js"></script>
+</body>
 </html>
