@@ -1,458 +1,223 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Meditrack – Real-Time Patient Monitoring System</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Top Header Bar -->
-  <div class="top-header">
-    <div class="container top-header__content">
-      <div class="top-header__item">
-        <span class="icon icon-emergency"></span>
-        <div>
-          <p class="top-header__label">Emergency Help</p>
-          <p class="top-header__value">Call 108 / +91-8000-123-911</p>
-        </div>
-      </div>
-      <div class="top-header__item">
-        <span class="icon icon-support"></span>
-        <div>
-          <p class="top-header__label">Hospital Support</p>
-          <p class="top-header__value">24x7 Meditrack Command Center</p>
-        </div>
-      </div>
-      <div class="top-header__item top-header__item--right">
-        <span class="icon icon-phone"></span>
-        <div>
-          <p class="top-header__label">Contact</p>
-          <p class="top-header__value">support@meditrack.health</p>
-        </div>
-      </div>
-    </div>
+   <!-- Top Bar -->
+  <div class="top-bar">
+    <span>🚨 Emergency: Call 108 / +91-8000-123-911</span>
+    <span>📧 support@meditrack.health</span>
+    <span>24x7 Meditrack Command Center</span>
   </div>
 
-  <!-- Navigation -->
-  <header class="main-header">
-    <div class="container main-header__content">
-      <a href="#home" class="logo">
-        <span class="logo__mark">M</span>
-        <span class="logo__text">Meditrack</span>
-      </a>
+  <!-- Nav -->
+  <nav>
+    <div class="logo"><span>M</span>editrack</div>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#features">Features</a></li>
+      <li><a href="#doctors">Find Doctor</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#team">Team</a></li>
+    </ul>
+    <div class="nav-btns">
+      <a href="auth/patient-login.html" class="btn btn-blue">Patient Login</a>
+      <a href="auth/doctor-login.html" class="btn btn-dark">Doctor Login</a>
+    </div>
+  </nav>
 
-      <nav class="nav" id="mainNav">
-        <ul class="nav__list">
-          <li><a href="#home" class="nav__link active">Home</a></li>
-          <li><a href="#features" class="nav__link">Features</a></li>
-          <li><a href="#find-doctor" class="nav__link">Find Your Doctor</a></li>
-          <li><a href="#contact" class="nav__link">Contact</a></li>
-          <li><a href="#team" class="nav__link active">Meet Our Team</a></li>
-        </ul>
-      </nav>
-     
-        <a class="btn btn-primary" href="auth/patient-login.html">Login as Patient</a>
-        <a class="btn btn-primary" href="auth/doctor-login.html">Login as Doctor</a>
-        
-  </header>
+  <!-- Hero -->
+  <section id="home" class="hero">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <p class="eyebrow">Smart Hospital Infrastructure</p>
+        <h1>Meditrack – Real-Time Patient Monitoring System</h1>
+        <p class="sub">Smart hospital technology that monitors patient health in real time and prioritizes critical patients using intelligent alerts.</p>
+        <div class="hero-stats">
+          <div class="stat"><span class="num">120+</span><span class="lbl">Hospitals onboarded</span></div>
+          <div class="stat"><span class="num">45k+</span><span class="lbl">Patients monitored</span></div>
+          <div class="stat"><span class="num">30 sec</span><span class="lbl">Avg. response time</span></div>
+        </div>
+      </div>
 
-  <main>
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-      <div class="container hero__content">
-        <div class="hero__left">
-          <p class="hero__eyebrow">Smart Hospital Infrastructure</p>
-          <h1 class="hero__title">
-            Meditrack – Real-Time Patient Monitoring System
-          </h1>
-          <p class="hero__subtitle">
-            Smart hospital technology that monitors patient health in real time and prioritizes critical patients using intelligent alerts.
-          </p>
-          <div class="hero__meta">
-            <div class="meta-item">
-              <span class="meta-label">Hospitals onboarded</span>
-              <span class="meta-value">120+</span>
-            </div>
-            <div class="meta-item">
-              <span class="meta-label">Patients monitored</span>
-              <span class="meta-value">45k+</span>
-            </div>
-            <div class="meta-item">
-              <span class="meta-label">Avg. response time</span>
-              <span class="meta-value">30 sec</span>
-            </div>
+      <!-- Live Dashboard Card -->
+      <div class="hero-card">
+        <div class="card-header">
+          <span class="badge-green">● Live Monitoring</span>
+          <span style="color:#6b7280">38 patients online</span>
+        </div>
+        <div class="vitals">
+          <div class="vital">
+            <div class="vl">Temperature</div>
+            <div class="vv">37.4°C</div>
+            <div class="vm">Normal</div>
+          </div>
+          <div class="vital">
+            <div class="vl">Heart Rate</div>
+            <div class="vv">92 bpm</div>
+            <div class="vm">Slightly elevated</div>
+          </div>
+          <div class="vital">
+            <div class="vl">Oxygen Level</div>
+            <div class="vv">96%</div>
+            <div class="vm">Stable</div>
+          </div>
+          <div class="vital alert">
+            <div class="vl">Suffering Score</div>
+            <div class="vv">8.4</div>
+            <div class="vm">High priority</div>
           </div>
         </div>
-        <div class="hero__right">
-          <div class="hero-slider" aria-label="Hero highlights">
-            <div class="hero-slider__track" id="heroSliderTrack">
-              <!-- Slide 1: Monitoring dashboard -->
-              <div class="hero-slide">
-                <div class="hero-dashboard">
-                  <div class="hero-dashboard__header">
-                    <div class="status-pill status-pill--online">Live Monitoring</div>
-                    <div class="status-meta">
-                      <span class="dot dot--green"></span> 38 patients online
-                    </div>
-                  </div>
-                  <div class="hero-dashboard__body">
-                    <div class="vitals-grid">
-                      <div class="vital-card">
-                        <p class="vital-label">Temperature</p>
-                        <p class="vital-value">37.4°C</p>
-                        <p class="vital-meta">Normal</p>
-                      </div>
-                      <div class="vital-card">
-                        <p class="vital-label">Heart Rate</p>
-                        <p class="vital-value">92 bpm</p>
-                        <p class="vital-meta">Slightly elevated</p>
-                      </div>
-                      <div class="vital-card">
-                        <p class="vital-label">Oxygen Level</p>
-                        <p class="vital-value">96%</p>
-                        <p class="vital-meta">Stable</p>
-                      </div>
-                      <div class="vital-card vital-card--alert">
-                        <p class="vital-label">Suffering Score</p>
-                        <p class="vital-value">8.4</p>
-                        <p class="vital-meta">High priority</p>
-                      </div>
-                    </div>
-                    <div class="hero-dashboard__timeline">
-                      <p class="timeline-title">Live Alerts</p>
-                      <ul class="timeline-list">
-                        <li class="timeline-item">
-                          <span class="dot dot--red"></span>
-                          <span class="timeline-text">ICU-04 • Respiratory distress alert triggered</span>
-                          <span class="timeline-time">Just now</span>
-                        </li>
-                        <li class="timeline-item">
-                          <span class="dot dot--orange"></span>
-                          <span class="timeline-text">Ward-12 • High suffering score trend detected</span>
-                          <span class="timeline-time">2 min ago</span>
-                        </li>
-                        <li class="timeline-item">
-                          <span class="dot dot--green"></span>
-                          <span class="timeline-text">ER-03 • Pain management plan updated</span>
-                          <span class="timeline-time">8 min ago</span>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Slide 2: AI doctors illustration -->
-              <div class="hero-slide">
-                <div class="hero-illustration hero-illustration--doctors">
-                  <div class="hero-illustration__badge">AI Assisted Medical Monitoring</div>
-                  <h3 class="hero-illustration__title">Real-Time AI Insights</h3>
-                  <p class="hero-illustration__text">
-                    Doctors receive real-time insights from patient sensors to prioritize treatment and save lives.
-                  </p>
-                  <img
-                    class="hero-slide-image"
-                    src="assets/hero-slide-2.png"
-                    alt="Cartoon doctors with patient monitoring and healthcare icons"
-                  />
-                </div>
-              </div>
-
-              <!-- Slide 3: Patient monitoring illustration -->
-              <div class="hero-slide">
-                <div class="hero-graph">
-                  <div class="hero-graph__top">
-                    <div>
-                      <p class="hero-graph__title">Vitals Trend</p>
-                      <p class="hero-graph__subtitle">Graphs & alerts in one view</p>
-                    </div>
-                    <div class="hero-graph__pill">Last 30 min</div>
-                  </div>
-                  <div class="hero-graph__chart" aria-hidden="true">
-                    <div class="hero-graph__grid"></div>
-                    <div class="hero-graph__line"></div>
-                    <div class="hero-graph__bars">
-                      <span></span><span></span><span></span><span></span><span></span>
-                    </div>
-                  </div>
-                  <div class="hero-graph__stats">
-                    <div class="hero-graph__stat">
-                      <span class="hero-graph__label">Heart Rate</span>
-                      <span class="hero-graph__value">88 bpm</span>
-                    </div>
-                    <div class="hero-graph__stat">
-                      <span class="hero-graph__label">SpO₂</span>
-                      <span class="hero-graph__value">97%</span>
-                    </div>
-                    <div class="hero-graph__stat hero-graph__stat--alert">
-                      <span class="hero-graph__label">Alert</span>
-                      <span class="hero-graph__value">Stable</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div class="alerts-box">
+          <p>Live Alerts</p>
+          <div class="alert-row"><span class="dot red"></span><span>ICU-04 · Respiratory distress</span></div>
+          <div class="alert-row"><span class="dot orange"></span><span>Ward-12 · High suffering score</span></div>
+          <div class="alert-row"><span class="dot green"></span><span>ER-03 · Pain plan updated</span></div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Features / Services -->
-    <section id="features" class="section section--light">
-      <div class="container">
-        <div class="section-header">
-          <h2 class="section-title">Why Choose MediTrack?</h2>
-          <p class="section-subtitle">
-            Designed for modern hospitals to monitor, triage and treat patients with precision and speed.
-          </p>
-        </div>
-        <div class="cards-grid">
-          <article class="feature-card">
-            <div class="feature-icon feature-icon--monitor"></div>
-            <h3>Real-Time Patient Monitoring</h3>
-            <p>
-              Continuous streaming of vital signs from bedside devices and wearable IoT sensors into a unified dashboard.
-            </p>
-          </article>
-          <article class="feature-card">
-            <div class="feature-icon feature-icon--ai"></div>
-            <h3>AI-Based Suffering Score System</h3>
-            <p>
-              Intelligent scoring engine that highlights patients in distress based on vitals, pain markers and clinical rules.
-            </p>
-          </article>
-          <article class="feature-card">
-            <div class="feature-icon feature-icon--alert"></div>
-            <h3>Doctor Alert Notification</h3>
-            <p>
-              Multi-channel notifications to on-duty doctors when critical thresholds are breached or trends are detected.
-            </p>
-          </article>
-          <article class="feature-card">
-            <div class="feature-icon feature-icon--iot"></div>
-            <h3>IoT Sensor Integration</h3>
-            <p>
-              Secure integration with bedside monitors, infusion pumps and wearables via standardized healthcare protocols.
-            </p>
-          </article>
-          <article class="feature-card">
-            <div class="feature-icon feature-icon--help"></div>
-            <h3>Emergency Help Button</h3>
-            <p>
-              One-tap assistance triggers immediate attention for patients experiencing sudden discomfort or pain.
-            </p>
-          </article>
-          <article class="feature-card">
-            <div class="feature-icon feature-icon--crowd"></div>
-            <h3>Hospital Crowd Monitoring</h3>
-            <p>
-              Real-time view of occupancy, queue lengths and waiting times across emergency, OPD and in-patient areas.
-            </p>
-          </article>
-        </div>
+  <!-- Features -->
+  <section id="features">
+    <div class="container">
+      <h2 class="section-title">Why Choose MediTrack?</h2>
+      <p class="section-sub">Designed for modern hospitals to monitor, triage and treat patients with precision and speed.</p>
+      <div class="grid-3">
+        <div class="card"><div class="card-icon">📊</div><h3>Real-Time Monitoring</h3><p>Continuous vital signs from bedside devices and IoT sensors in a unified dashboard.</p></div>
+        <div class="card"><div class="card-icon">🤖</div><h3>AI Suffering Score</h3><p>Intelligent scoring that highlights patients in distress based on vitals and pain markers.</p></div>
+        <div class="card"><div class="card-icon">🔔</div><h3>Doctor Alerts</h3><p>Multi-channel notifications when critical thresholds are breached or trends detected.</p></div>
+        <div class="card"><div class="card-icon">🌐</div><h3>IoT Integration</h3><p>Secure connection with bedside monitors, infusion pumps and wearable devices.</p></div>
+        <div class="card"><div class="card-icon">🆘</div><h3>Emergency Button</h3><p>One-tap assistance triggers immediate attention for patients in sudden discomfort.</p></div>
+        <div class="card"><div class="card-icon">🏥</div><h3>Crowd Monitoring</h3><p>Real-time view of occupancy and waiting times across emergency and OPD areas.</p></div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Login Section -->
-    <section id="login" class="section section--light">
-      <div class="container">
-        <div class="section-header">
-          <h2 class="section-title">Choose Your Login</h2>
-          <p class="section-subtitle">
-            Dedicated experiences for patients and clinicians, built on the same real-time monitoring engine.
-          </p>
-        </div>
-        <div class="login-grid">
-          <article class="login-card">
-            <div class="login-badge login-badge--patient">Patient</div>
-            <h3>Patient Login</h3>
-            <p>
-              Patients can view their health status, live sensor readings, estimated waiting time and alerts raised for them.
-            </p>
-            <ul class="login-list">
-              <li>View vitals and trends</li>
-              <li>Track waiting time in real time</li>
-              <li>Receive guidance on alerts</li>
-            </ul>
-            <button class="btn btn-primary btn-full">Login as Patient</button>
-          </article>
-          <article class="login-card">
-            <div class="login-badge login-badge--doctor">Doctor</div>
-            <h3>Doctor Login</h3>
-            <p>
-              Doctors can monitor all admitted and waiting patients, view alerts, and prioritise treatment based on severity.
-            </p>
-            <ul class="login-list">
-              <li>Unified view of all patients</li>
-              <li>Automatic triage by suffering score</li>
-              <li>Instant critical alerts</li>
-            </ul>
-            <button class="btn btn-secondary btn-full">Login as Doctor</button>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Find Your Doctor -->
-    <section id="find-doctor" class="section section--light">
-      <div class="container">
-        <div class="section-header">
-          <h2 class="section-title">Find Your Doctor</h2>
-          <p class="section-subtitle">
-            Explore doctors by specialization and reach out with one click.
-          </p>
-        </div>
-
-        <div
-          class="doctor-filters"
-          role="tablist"
-          aria-label="Filter doctors by specialization"
-        >
-          <button type="button" class="filter-btn" data-doctor-filter="Neurologist">
-            Neurologist
-          </button>
-          <button type="button" class="filter-btn" data-doctor-filter="Gynecologist">
-            Gynecologist
-          </button>
-          <button type="button" class="filter-btn" data-doctor-filter="Gastroenterologist">
-            Gastroenterologist
-          </button>
-          <button type="button" class="filter-btn" data-doctor-filter="Cardiologist">
-            Cardiologist
-          </button>
-          <button type="button" class="filter-btn" data-doctor-filter="Orthopedic">
-            Orthopedic
-          </button>
-          <button type="button" class="filter-btn" data-doctor-filter="General Physician">
-            General Physician
-          </button>
-        </div>
-
-        <!-- <div class="doctor-results" aria-live="polite">
-          <p id="doctorEmptyState" class="doctor-empty" hidden>
-            No doctors found for this specialization.
-          </p>
-          <div id="doctorCards" class="doctor-cards-grid"></div>
-        </div>
-      </div> -->
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="section section--light">
-      <div class="container contact-grid">
-        <div class="contact-info">
-          <h2 class="section-title">Contact Meditrack</h2>
-          <p class="section-subtitle">
-            Share your details and our hospital technology experts will reach out to understand your workflows.
-          </p>
-          <ul class="contact-list">
-            <li>
-              <span class="icon icon-location"></span>
-              <div>
-                <p class="contact-label">Address</p>
-                <p class="contact-value">Meditrack Health Technologies, Bengaluru, India</p>
-              </div>
-            </li>
-            <li>
-              <span class="icon icon-mail"></span>
-              <div>
-                <p class="contact-label">Email</p>
-                <p class="contact-value">partnerships@meditrack.health</p>
-              </div>
-            </li>
-            <li>
-              <span class="icon icon-phone"></span>
-              <div>
-                <p class="contact-label">Phone</p>
-                <p class="contact-value">+91-80-5555-0101</p>
-              </div>
-            </li>
+  <!-- Login -->
+  <section id="login">
+    <div class="container">
+      <h2 class="section-title">Choose Your Login</h2>
+      <p class="section-sub">Dedicated experiences for patients and clinicians, built on the same real-time engine.</p>
+      <div class="grid-2">
+        <div class="login-card">
+          <h3>🧑‍⚕️ Patient Login</h3>
+          <p>View your health status, live sensor readings, estimated waiting time and alerts raised for you.</p>
+          <ul>
+            <li>View vitals and trends</li>
+            <li>Track waiting time in real time</li>
+            <li>Receive guidance on alerts</li>
           </ul>
+          <a href="auth/patient-login.html"><button class="btn btn-blue btn-full">Login as Patient</button></a>
         </div>
-        <div class="contact-form-wrapper">
-          <form class="contact-form" id="contactForm">
-            <div class="form-group">
-              <label for="name">Full Name</label>
-              <input type="text" id="name" name="name" placeholder="Enter your full name" required />
-            </div>
-            <div class="form-group">
-              <label for="email">Email Address</label>
-              <input type="email" id="email" name="email" placeholder="you@example.com" required />
-            </div>
-            <div class="form-group">
-              <label for="message">Message</label>
-              <textarea id="message" name="message" rows="4" placeholder="Tell us about your hospital, use case or integration requirements." required></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary btn-full">Submit Enquiry</button>
-            <p class="form-message" id="formMessage" aria-live="polite"></p>
-          </form>
+        <div class="login-card">
+          <h3>👨‍⚕️ Doctor Login</h3>
+          <p>Monitor all admitted and waiting patients, view alerts, and prioritise treatment by severity.</p>
+          <ul>
+            <li>Unified view of all patients</li>
+            <li>Auto triage by suffering score</li>
+            <li>Instant critical alerts</li>
+          </ul>
+          <a href="auth/doctor-login.html"><button class="btn btn-dark btn-full">Login as Doctor</button></a>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-      
-    <section id="team" class="section section--light">
-      <div class="container">
-        <div class="section-header">
-          <h2 class="section-title">Meet Our Team</h2>
-          <p class="section-subtitle">The team behind Meditrack innovation</p>
-          </div>
-        <div id="teamCards" class="team-grid" aria-label="Team members"></div>
+  <!-- Find Doctor -->
+  <section id="doctors">
+    <div class="container">
+      <h2 class="section-title">Find Your Doctor</h2>
+      <p class="section-sub">Explore doctors by specialization and reach out with one click.</p>
+
+      <div class="filter-wrap" id="filterWrap">
+        <button class="filter-btn active" data-spec="all">All</button>
+        <button class="filter-btn" data-spec="Neurologist">Neurologist</button>
+        <button class="filter-btn" data-spec="Gynecologist">Gynecologist</button>
+        <button class="filter-btn" data-spec="Gastroenterologist">Gastroenterologist</button>
+        <button class="filter-btn" data-spec="Cardiologist">Cardiologist</button>
+        <button class="filter-btn" data-spec="Orthopedic">Orthopedic</button>
       </div>
-    </section>
-  </main>
 
+      <div class="doctor-grid" id="doctorGrid"></div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="contact-wrap">
+      <div class="contact-info">
+        <h2>Contact Meditrack</h2>
+        <p>Share your details and our hospital technology experts will reach out to you.</p>
+        <ul>
+          <li>📍 Meditrack Health Technologies, Bengaluru, India</li>
+          <li>📧 partnerships@meditrack.health</li>
+          <li>📞 +91-80-5555-0101</li>
+        </ul>
+      </div>
+      <div class="contact-form">
+        <form id="contactForm">
+          <label>Full Name</label>
+          <input type="text" placeholder="Enter your full name" required />
+          <label>Email Address</label>
+          <input type="email" placeholder="you@example.com" required />
+          <label>Message</label>
+          <textarea rows="4" placeholder="Tell us about your hospital or use case." required></textarea>
+          <button type="submit" class="btn btn-blue btn-full" style="border-radius:8px;padding:10px;font-size:14px;">Submit Enquiry</button>
+          <p id="form-msg"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team -->
+  <section id="team">
+    <div class="container">
+      <h2 class="section-title">Meet Our Team</h2>
+      <p class="section-sub">The team behind Meditrack innovation</p>
+      <div class="team-grid" id="teamGrid"></div>
+    </div>
+  </section>
 
   <!-- Footer -->
-  <footer class="site-footer">
-    <div class="container site-footer__grid">
+  <footer>
+    <div class="footer-grid">
       <div>
-        <div class="logo logo--footer">
-          <span class="logo__mark">M</span>
-          <span class="logo__text">Meditrack</span>
-        </div>
-        <p class="footer-text">
-          Meditrack is a conceptual real-time patient monitoring system designed to demonstrate how hospitals can use connected technology to improve response times.
-        </p>
+        <div class="logo" style="color:white;margin-bottom:8px;font-size:18px;"><span style="color:#1bb3f2">M</span>editrack</div>
+        <p style="font-size:12px;color:#9ca3af;">Conceptual real-time patient monitoring system for demonstration purposes.</p>
       </div>
       <div>
-        <h4 class="footer-heading">Quick Links</h4>
-        <ul class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
           <li><a href="#home">Home</a></li>
           <li><a href="#features">Features</a></li>
-          <li><a href="#how-it-works">How It Works</a></li>
-          <li><a href="#find-doctor">Find Your Doctor</a></li>
+          <li><a href="#doctors">Find Doctor</a></li>
         </ul>
       </div>
       <div>
-        <h4 class="footer-heading">Support</h4>
-        <ul class="footer-links">
+        <h4>Support</h4>
+        <ul>
           <li><a href="#contact">Implementation Enquiry</a></li>
           <li><a href="#contact">Technical Questions</a></li>
-          <li><a href="#contact">Security &amp; Compliance</a></li>
         </ul>
       </div>
       <div>
-        <h4 class="footer-heading">Contact</h4>
-        <ul class="footer-links footer-links--contact">
-          <li>Email: support@meditrack.health</li>
-          <li>Phone: +91-80-5555-0101</li>
-          <li>Location: Bengaluru, India</li>
+        <h4>Contact</h4>
+        <ul>
+          <li>support@meditrack.health</li>
+          <li>+91-80-5555-0101</li>
+          <li>Bengaluru, India</li>
         </ul>
       </div>
     </div>
-    <div class="site-footer__bottom">
-      <div class="container site-footer__bottom-content">
-        <p>&copy; <span id="year"></span> Meditrack. For demonstration purposes only.</p>
-        <p>Not a real medical product or emergency service.</p>
-      </div>
+    <div class="footer-bottom">
+      <p>© <span id="year"></span> Meditrack. For demonstration purposes only. Not a real medical product.</p>
     </div>
   </footer>
-
   <script src="script.js"></script>
 </body>
 </html>

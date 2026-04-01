@@ -308,15 +308,5 @@ select:focus {
   color: #b91c1c;
 }
 
-@media (max-width: 900px) {
-  .page {
-    padding: 26px 14px;
-  }
-}
 
-@media (prefers-reduced-motion: reduce) {
-  * {
-    transition: none !important;
-  }
-}
 
