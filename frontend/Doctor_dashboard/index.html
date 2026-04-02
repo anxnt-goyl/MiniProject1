@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MediTrack — Patient Monitoring Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
+  
+   
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<!-- ── Navbar ─────────────────────────────────────────────── -->
+<nav>
+  <div class="nav-left">
+    <!-- Logo -->
+    <a class="logo" href="#">
+      <div class="logo-icon">
+        <!-- Cross / heartbeat icon -->
+        <svg viewBox="0 0 24 24">
+          <path d="M12 21C12 21 3 13.5 3 8.5C3 5.42 5.42 3 8.5 3C10.24 3 11.91 3.81 13 5.08C14.09 3.81 15.76 3 17.5 3C20.58 3 23 5.42 23 8.5" stroke-width="2.2" fill="none"/>
+          <polyline points="2,12 6,12 8,8 10,16 13,10 15,14 17,12 22,12" stroke-width="2" fill="none"/>
+        </svg>
+      </div>
+      <div class="logo-text">Medi<span>Track</span></div>
+    </a>
+
+    <!-- Nav links -->
+    <div class="nav-links">
+      <a class="nav-link active" href="#">Dashboard</a>
+      <a class="nav-link" href="#">Patients</a>
+      <a class="nav-link" href="#">Departments</a>
+      <a class="nav-link" href="#">Reports</a>
+      <a class="nav-link" href="#">Schedule</a>
+    </div>
+  </div>
+
+  <div class="nav-right">
+    <div class="live-pill"><div class="live-dot"></div> Live Monitoring</div>
+    <div class="online-pill"><span class="online-count" id="onlineCount">38</span> patients online</div>
+    <div class="nav-bell">🔔<div class="badge"></div></div>
+    <div class="nav-avatar">DR</div>
+  </div>
+</nav>
+
+<!-- ── Page ───────────────────────────────────────────────── -->
+<div class="page">
+
+  <!-- Page header -->
+  <div class="page-header">
+    <div class="page-title">Patient Monitoring Dashboard</div>
+    <div class="page-sub">Real-time PSS scores, department status, and critical alerts</div>
+  </div>
+
+  <!-- Stats -->
+  <div class="stats-row">
+    <div class="stat-card">
+      <div class="stat-icon blue">👥</div>
+      <div><div class="stat-val" id="sTotal">38</div><div class="stat-lbl">Total Patients</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon red">⚠️</div>
+      <div><div class="stat-val" id="sCritical">6</div><div class="stat-lbl">Critical</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon yellow">🕐</div>
+      <div><div class="stat-val" id="sMonitoring">18</div><div class="stat-lbl">Monitoring</div></div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon green">✅</div>
+      <div><div class="stat-val" id="sStable">14</div><div class="stat-lbl">Stable</div></div>
+    </div>
+  </div>
+
+  <!-- Body -->
+  <div class="body-layout">
+
+    <!-- Table Panel -->
+    <div class="table-panel">
+      <div class="table-panel-header">
+        <div>
+          <div class="table-panel-title">Patient Monitoring Table</div>
+          <div class="table-panel-sub" id="tableSubtitle">Showing 10 of 38 active patients</div>
+        </div>
+        <button class="refresh-btn" onclick="refreshData(this)">
+          <span class="ri">↻</span> Refresh
+        </button>
+      </div>
+
+      <!-- Toolbar -->
+      <div class="toolbar">
+        <div class="search-wrap">
+          🔍
+          <input type="text" id="searchInput" placeholder="Search patient ID or department…" oninput="applyFilters()"/>
+        </div>
+        <div class="filter-group">
+          <button class="f-btn active" onclick="setFilter('all',this)">≡ All Depts</button>
+          <button class="f-btn" onclick="setFilter('ICU',this)">ICU</button>
+          <button class="f-btn" onclick="setFilter('ER',this)">ER</button>
+          <button class="f-btn" onclick="setFilter('OPD',this)">OPD</button>
+          <button class="f-btn" onclick="setFilter('WARD',this)">Ward</button>
+        </div>
+      </div>
+
+      <!-- Table -->
+      <div style="overflow-x:auto;">
+        <table>
+          <thead>
+            <tr>
+              <th>Patient ID</th>
+              <th>Department</th>
+              <th>PSS Score</th>
+              <th>Status</th>
+              <th>Priority</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Alerts Panel -->
+    <div class="alerts-panel">
+      <div class="alerts-header">
+        <div>
+          <div class="alerts-title">Live Alerts</div>
+          <div class="alerts-sub">Real-time clinical notifications</div>
+        </div>
+        <div class="live-tag"><div class="live-dot" style="width:6px;height:6px;background:var(--red);border-radius:50%;animation:blink 1.4s infinite;"></div> Live</div>
+      </div>
+      <div id="alertsList"></div>
+    </div>
+
+  </div>
+</div>
+<script src="script.js"></script>
+
+
+</body>
+</html>
