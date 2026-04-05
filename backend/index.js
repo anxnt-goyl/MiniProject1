@@ -10,8 +10,8 @@ const port = 8000;
 
 //middleware
 app.use(express.json());
-// app.use(express.static(path.join(__dirname, '..', 'frontend')));
 app.use(express.static(path.join(__dirname, '..', 'frontend', 'home_dashboard'))); // serve frontend files
+
 //db connection
 connectToDatabase('mongodb://localhost:27017/mydatabase').then(() => console.log('Connected to MongoDB')).catch(err => console.error('Failed to connect to MongoDB', err));
 
