@@ -1,13 +1,15 @@
 const express = require('express');
 const router = express.Router();
-const { showRegistrationPage , showLoginPage} = require('../controllers/patientController');
+const { showRegistrationPage , showLoginPage , login , register , showDashboard} = require('../controllers/patientController');
 
 //page routes
 router.get('/register', showRegistrationPage);
 router.get('/login', showLoginPage);
+router.get('/dashboard', showDashboard);
 
 //action routes
-// router.post('/patient/register', register);
-// router.post('/patient/login', login);
+
+router.post('/register', register);
+router.post('/login', login);
  
 module.exports = router;

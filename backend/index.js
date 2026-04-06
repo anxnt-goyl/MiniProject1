@@ -32,7 +32,7 @@ app.use('/hospital', doctorRoutes);
 
 
 // 🔹 4. Database Connection + Server Start
-connectToDatabase('mongodb://localhost:27017/mydatabase')
+connectToDatabase('mongodb://localhost:27017/projectDB')
     .then(() => {
         console.log('✅ Connected to MongoDB');
 

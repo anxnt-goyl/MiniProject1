@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>MediTrack – Patient Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="/patientDashboard/Patient.css"/>
+</head>
+<body>
+
+   <!-- Top Bar -->
+  <div class="top-bar">
+    <span>🚨 Emergency: Call 108 / +91-8000-123-911</span>
+    <span>📧 support@meditrack.health</span>
+    <span>24x7 Meditrack Command Center</span>
+  </div>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-brand" href="#">
+    <div class="nav-logo">MT</div>
+    <div>
+      <div class="nav-title">MediTrack</div>
+      <div class="nav-sub">Patient Suffering Intelligence System</div>
+    </div>
+  </a>
+  <div class="nav-right">
+    <div class="guest-chip">
+      <div class="guest-avatar">MT</div>
+      <span class="guest-name">Guest</span>
+    </div>
+    <button class="btn-logout">Logout</button>
+  </div>
+</nav>
+
+<!-- MAIN -->
+<main>
+  <div class="page-header">
+    <h1>Patient Dashboard</h1>
+    <p>Real-time status &amp; queue insights</p>
+  </div>
+
+  <div class="grid">
+
+    <!-- Patient Info -->
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">Patient Info</span>
+        <span class="badge badge-red">Critical</span>
+      </div>
+      <div class="info-rows">
+        <div class="info-row"><span class="info-label">Name</span><span class="info-value">Aarav Sharma</span></div>
+        <div class="info-row"><span class="info-label">Patient ID</span><span class="info-value">MT-PAT-10429</span></div>
+        <div class="info-row"><span class="info-label">Token Number</span><span class="info-value">T-17</span></div>
+      </div>
+      <div class="card-footer">
+        <button class="btn-help">Request Help</button>
+        <span class="critical-note">Visible only in critical status</span>
+      </div>
+    </div>
+
+    <!-- Waiting Details -->
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">Waiting Details</span>
+        <span class="badge badge-green">Queue Active</span>
+      </div>
+      <div class="wait-metrics">
+        <div class="wait-metric">
+          <div class="wait-metric-label">Waiting Time</div>
+          <div class="wait-metric-value">32 <span class="wait-unit">min</span></div>
+        </div>
+        <!-- <div class="wait-metric">
+          <div class="wait-metric-label">Estimated Time</div>
+          <div class="wait-metric-value" id="countdown" style="font-variant-numeric:tabular-nums;">06:35</div>
+        </div> -->
+      </div>
+      <div class="wait-bar-wrap"><div class="wait-bar" id="wait-bar"></div></div>
+      <div class="wait-note">Higher-than-usual wait time. Please remain seated and stay hydrated.</div>
+    </div>
+
+    <!-- Sensor Data -->
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">Sensor Data</span>
+        <span class="badge badge-blue">Real-time</span>
+      </div>
+      <div class="sensor-grid">
+        <div class="sensor-chip">
+          <div class="sensor-label">Blood Pressure (BP)</div>
+          <div class="sensor-value" id="bp">155/87 <span class="sensor-unit">mmHg</span></div>
+        </div>
+        <div class="sensor-chip">
+          <div class="sensor-label">Temperature</div>
+          <div class="sensor-value" id="temp">39.2 <span class="sensor-unit">°C</span></div>
+        </div>
+        <div class="sensor-chip">
+          <div class="sensor-label">Heart Rate</div>
+          <div class="sensor-value" id="hr">74 <span class="sensor-unit">bpm</span></div>
+        </div>
+      </div>
+      <div class="sensor-note">Elevated vitals detected. Staff may monitor you more closely.</div>
+    </div>
+
+    <!-- Upload Documents -->
+    <div class="card">
+      <div class="card-header">
+        <span class="card-title">Upload Documents</span>
+        <span class="badge badge-green">PDF / Images</span>
+      </div>
+      <label class="upload-area" id="upload-area" for="real-file-input">
+        <span class="btn-file">Choose File</span>
+        <div class="file-info">
+          <span class="file-info-label">Selected file</span>
+          <span class="file-info-name" id="file-name-display">No file selected</span>
+        </div>
+      </label>
+      <input type="file" id="real-file-input" accept=".pdf,image/*" style="display:none;" />
+      <button class="btn-upload" id="upload-btn" disabled>Upload Document</button>
+    </div>
+
+    <!-- Success Popup -->
+    <div class="popup-overlay" id="popup-overlay">
+      <div class="popup-box">
+        <div class="popup-icon">✓</div>
+        <div class="popup-title">Document Uploaded!</div>
+        <div class="popup-msg">Your document has been successfully uploaded and sent for review.</div>
+        <button class="popup-close" id="popup-close">Done</button>
+      </div>
+    </div>
+
+    <!-- Messages (full width) -->
+    <div class="card" style="grid-column: 1 / -1;">
+      <div class="card-header">
+        <span class="card-title">Messages</span>
+        <span class="badge badge-green">Live</span>
+      </div>
+      <div class="messages-list" id="messages-list">
+        <div class="msg-item"><span class="msg-text">Doctor will attend you soon.</span><span class="msg-time">06:04</span></div>
+        <div class="msg-item"><span class="msg-text">High waiting time detected. We apologize for the inconvenience.</span><span class="msg-time">06:04</span></div>
+        <div class="msg-item"><span class="msg-text">Your vitals have been reviewed by the triage team.</span><span class="msg-time">05:58</span></div>
+      </div>
+    </div>
+
+  </div><!-- /grid -->
+</main>
+
+<script src="/patientDashboard/Patient.js"></script>
+</body>
+</html>
