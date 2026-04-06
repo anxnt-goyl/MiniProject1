@@ -2,42 +2,40 @@
     document.getElementById("year").textContent = new Date().getFullYear();
 
     // ── Doctor data ──
-    const doctors = [
-      { name: "Dr. Anjali Sharma",  initials: "AS", spec: "Gynecologist",       desc: "10+ years in women's health. Patient-first care for every stage of life.", hospital: "Sanjeevani Women's Clinic" },
-      { name: "Dr. Raj Verma",      initials: "RV", spec: "Cardiologist",        desc: "Heart specialist focused on prevention, diagnosis and cardiovascular care.", hospital: "Apollo Heart Care Center" },
-      { name: "Dr. Neha Singh",     initials: "NS", spec: "Neurologist",         desc: "Brain and nerve expert offering guidance for neurological health.", hospital: "Meditrack NeuroHealth" },
-      { name: "Dr. Amit Patel",     initials: "AP", spec: "Gastroenterologist",  desc: "Digestive system expert with a practical approach to gut health.", hospital: "GastroPrime Hospitals" },
-      { name: "Dr. Karan Mehta",    initials: "KM", spec: "Orthopedic",          desc: "Bone and joint specialist — from injury care to rehabilitation.", hospital: "OrthoCare Multi-Specialty" },
-    ];
+    const doctors = {
+      apollo:[
+    {
+            name: "Dr. Reddy",
+            degree: "MBBS, MS",
+            desc: "Surgeon",
+            rating: "4.8 ⭐",
+            status: "green"
+        }
+     ]
+    };
 
-    function renderDoctors(filter) {
-      const grid = document.getElementById("doctorGrid");
-      const list = filter === "all" ? doctors : doctors.filter(d => d.spec === filter);
-      grid.innerHTML = list.map(d => `
-        <div class="doctor-card">
-          <div class="doc-head">
-            <div class="avatar">${d.initials}</div>
-            <div>
-              <div class="doc-name">${d.name}</div>
-              <div class="doc-spec">${d.spec}</div>
+function showDoctors() {
+    const hospital = document.getElementById("hospitalSelect").value;
+    const container = document.getElementById("doctorContainer");
+
+    container.innerHTML = "";
+
+    if (!doctors[hospital]) return;
+
+    doctors[hospital].forEach(doc => {
+        container.innerHTML += `
+            <div class="card">
+                <h3>
+                    ${doc.name}
+                    <span class="status ${doc.status}"></span>
+                </h3>
+                <p>${doc.degree}</p>
+                <p>${doc.desc}</p>
+                <p>${doc.rating}</p>
             </div>
-          </div>
-          <p class="doc-desc">${d.desc}</p>
-          <p class="doc-hospital">Hospital: <strong>${d.hospital}</strong></p>
-          <a href="#contact"><button class="btn btn-blue btn-full" style="border-radius:8px;padding:8px;">Contact</button></a>
-        </div>
-      `).join("");
-    }
-
-    renderDoctors("all");
-
-    // Filter buttons
-    document.getElementById("filterWrap").addEventListener("click", function(e) {
-      if (!e.target.classList.contains("filter-btn")) return;
-      document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
-      e.target.classList.add("active");
-      renderDoctors(e.target.dataset.spec);
+        `;
     });
+}
 
     // ── Team data ──
     const team = [
