@@ -211,13 +211,15 @@ a:hover {
 
 .form {
   margin-top: 14px;
-  display: grid;
-  gap: 12px;
+    display: flex;
+    flex-direction: column;
+    
 }
 
 .row {
+  margin-bottom: 15px;
   display: grid;
-  gap: 6px;
+  gap: 10px;
 }
 
 label {
