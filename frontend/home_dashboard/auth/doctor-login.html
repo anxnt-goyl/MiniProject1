@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Doctor Login – Meditrack</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="page">
+      <div class="card card--auth">
+        <div class="card-top">
+          <a class="btn-back" href="../index.html">Back</a>
+          <div class="brand-inline">
+            <span class="brand-mark">M</span>
+            <span>Meditrack</span>
+          </div>
+        </div>
+
+        <div class="card-header">
+          <h2 class="title">Doctor Login</h2>
+          <p class="helper">Sign in to access the doctor dashboard.</p>
+        </div>
+
+        <div class="card-illustration">
+          <img src="../assets/doctor-login.png" alt="AI cartoon doctors and patients" />
+        </div>
+
+        <form action="/doctor/login" method="POST">
+          <div class="row">
+            <label for="username">Username</label>
+            <input
+              id="username"
+              name="username"
+              type="text"
+              placeholder="Enter your username"
+              required
+            />
+          </div>
+          <div class="row">
+            <label for="password">Password</label>
+            <input
+              id="password"
+              name="password"
+              type="password"
+              placeholder="Enter your password"
+              required
+            />
+          </div>
+          <button class="btn btn-primary" type="submit">Login</button>
+        </form>
+
+        <p class="note">
+          Don't have an account? <a href="doctor-register.html">Register</a>
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
+
