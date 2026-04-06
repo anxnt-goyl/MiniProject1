@@ -27,7 +27,7 @@ const patientDataSchema = new mongoose.Schema({
     match: [/\S+@\S+\.\S+/, 'Please use a valid email']
   },
 
-  phoneNumber: {
+  phone: {
     type: String,
     required: true,
     unique: true,
@@ -44,4 +44,5 @@ const patientDataSchema = new mongoose.Schema({
 
 //define the model
 const Patient = mongoose.model("Patient", patientDataSchema);
+
 module.exports = Patient;
