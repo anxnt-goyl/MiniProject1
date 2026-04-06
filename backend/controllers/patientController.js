@@ -1,14 +1,15 @@
-const Patient = require('../models/Patient');
-const bcrypt = require('bcryptjs');
-const path = require('path');  
+const Patient = require('../models/Patient');  
 
 // show registration page
 function showRegistrationPage(req, res) {
-    res.sendFile(path.join(__dirname, '..','..' ,'frontend', 'home_dashboard', 'auth' , 'patient-register.html'));
+    res.render('home_dashboard/auth/patient-register');
+}
+//show login page
+function showLoginPage(req, res) {
+    res.render('home_dashboard/auth/patient-login');
 }
 
 module.exports = {
-    showRegistrationPage
-    // register,
-    // login
+    showRegistrationPage,
+    showLoginPage
 };
