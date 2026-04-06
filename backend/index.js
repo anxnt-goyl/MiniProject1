@@ -20,8 +20,7 @@ app.use('/patient', patientRoutes);
 
 //middleware
 app.use(express.json());
-app.use(express.static(path.join(__dirname, '..', 'frontend', 'home_dashboard'))); // serve frontend files
-app.use(express.static(path.join(__dirname, '..', 'frontend', 'home_dashboard','auth'))); // serve auth files
+app.use(express.static(path.join(__dirname, '..', 'frontend')));
 //db connection
 connectToDatabase('mongodb://localhost:27017/mydatabase').then(() => console.log('Connected to MongoDB')).catch(err => console.error('Failed to connect to MongoDB', err));
 
