@@ -19,58 +19,100 @@
 
         <div class="card-header">
           <h2 class="title">Hospital Registration</h2>
-          <p class="helper">Providing trusted healthcare with experienced doctors and compassionate care for every patient.</p>
+          <p class="helper">
+            Providing trusted healthcare with experienced doctors and
+            compassionate care for every patient.
+          </p>
         </div>
 
         <div class="card-illustration">
-          <img src="/home_dashboard/assets/doctor-register.png" alt="AI cartoon doctors and patients" />
+          <img
+            src="/home_dashboard/assets/doctor-register.png"
+            alt="AI cartoon doctors and patients"
+          />
         </div>
 
-        <form class="form">
+        <form class="form" action="/hospital/register" method="POST">
+          <div class="row">
+            <label for="hospitalName">Hospital Name</label>
+            <input
+              id="hospitalName"
+              name="hospitalName"
+              type="text"
+              placeholder="Hospital Name"
+              required
+            />
+          </div>
 
-            <div class="row">
-              <label for="email">Hospital Name</label>
-            <input type="text" placeholder="Hospital Name" required>
-            </div>
+          <div class="row">
+            <label for="address">Address</label>
+            <input
+              id="address"
+              name="address"
+              type="text"
+              placeholder="Address"
+              required
+            />
+          </div>
 
-            <div class="row">
-              <label for="email">Address</label>
-<input type="text" placeholder="Address">
+          <div class="row">
+            <label for="email">Email</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              placeholder="you@hospital.com"
+              required
+            />
+          </div>
 
-            </div>
+          <div class="row">
+            <label for="phone">Phone Number</label>
+            <input
+              id="phone"
+              name="phone"
+              type="tel"
+              placeholder="Enter phone number"
+              required
+            />
+          </div>
 
-            <div class="row">
-              <label for="email">Email</label>
-              <input id="email" name="email" type="email" placeholder="you@hospital.com" required />
-            </div>
+          <!-- <div class="row">
+            <label for="username">Username</label>
+            <input
+              id="username"
+              name="username"
+              type="text"
+              placeholder="Choose a username"
+              required
+            />
+          </div> -->
 
-            <div class="row">
-              <label for="phone">Phone Number</label>
-              <input
-                id="phone"
-                name="phone"
-                type="tel"
-                placeholder="Enter phone number"
-                required
-                data-phone-input
-              />
-            </div>
-            <div class="row">
-              <label for="password">Username</label>
-              <input id="password" name="password" type="password" placeholder="Create a password" required />
-            </div>
+          <div class="row">
+            <label for="password">Password</label>
+            <input
+              id="password"
+              name="password"
+              type="password"
+              placeholder="Create a password"
+              required
+            />
+          </div>
 
-            <div class="row">
-              <label for="password">Password</label>
-              <input id="password" name="password" type="text" placeholder="Choose a username" required />
-            </div>
-            <div class="row">
-              <label for="confirmpassword">Confirm Password</label>
-              <input id="confirmPassword" name="confirmpassword" type="text" placeholder="Choose a username" required />
-            </div>
-            <div class="row">
+          <!-- <div class="row">
+            <label for="confirmPassword">Confirm Password</label>
+            <input
+              id="confirmPassword"
+              name="confirmPassword"
+              type="password"
+              placeholder="Confirm password"
+              required
+            />
+          </div> -->
+
+          <div class="row">
             <button class="btn btn-primary" type="submit">Register</button>
-            </div>
+          </div>
         </form>
 
         <p class="note">
@@ -82,4 +124,3 @@
     <script src="/home_dashboard/auth/script.js"></script>
   </body>
 </html>
-

@@ -1,32 +1,14 @@
 const mongoose = require('mongoose');
 
-const doctorSchema = new mongoose.Schema({
-
-  fullName: {
-    type: String,
-    required: true,
-    trim: true
-  },
-
-  specialization: {
-    type: String,
-    required: true,
-    enum: [
-      'Gynecologist',
-      'Surgeon',
-      'Cardiologist',
-      'General Physician',
-      'Other'
-    ]
-  },
-
-  degree: {
-    type: String,
-    required: true,
-    trim: true
-  },
+const hospitalSchema = new mongoose.Schema({
 
   hospitalName: {
+    type: String,
+    required: true,
+    trim: true
+  },
+
+  address: {
     type: String,
     required: true,
     trim: true
@@ -36,21 +18,22 @@ const doctorSchema = new mongoose.Schema({
     type: String,
     required: true,
     unique: true,
-    lowercase: true
+    lowercase: true,
+    match: [/\S+@\S+\.\S+/, 'Please use a valid email']
   },
 
-  phoneNumber: {
+  phone: {
     type: String,
     required: true,
     unique: true
   },
 
-  username: {
-    type: String,
-    required: true,
-    unique: true,
-    minlength: 4
-  },
+  // username: {
+  //   type: String,
+  //   required: true,
+  //   unique: true,
+  //   minlength: 4
+  // },
 
   password: {
     type: String,
@@ -60,6 +43,6 @@ const doctorSchema = new mongoose.Schema({
 
 }, { timestamps: true });
 
-//define the model
-const Doctor = mongoose.model("Doctor", doctorSchema);
-module.exports = Doctor;
+const Hospital = mongoose.model("Hospital", hospitalSchema);
+
+module.exports = Hospital;
