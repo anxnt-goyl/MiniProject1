@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Doctor Registration – Meditrack</title>
+    <title>Hospital Registration – Meditrack</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -18,46 +18,25 @@
         </div>
 
         <div class="card-header">
-          <h2 class="title">Doctor Registration</h2>
-          <p class="helper">Register as a doctor to monitor patients and receive alerts.</p>
+          <h2 class="title">Hospital Registration</h2>
+          <p class="helper">Providing trusted healthcare with experienced doctors and compassionate care for every patient.</p>
         </div>
 
         <div class="card-illustration">
           <img src="../assets/doctor-register.png" alt="AI cartoon doctors and patients" />
         </div>
 
-        <form action="/doctor/register" method="POST">
+        <form class="form">
+
             <div class="row">
-              <label for="fullName">Full Name</label>
-              <input
-                id="fullName"
-                name="fullName"
-                type="text"
-                placeholder="Enter your full name"
-                required
-              />
+              <label for="email">Hospital Name</label>
+            <input type="text" placeholder="Hospital Name" required>
             </div>
 
             <div class="row">
-              <label for="specialization">Doctor Specialization</label>
-              <select id="specialization" name="specialization" required>
-                <option value="" selected disabled>Select specialization</option>
-                <option>Gynecologist</option>
-                <option>Surgeon</option>
-                <option>Cardiologist</option>
-                <option>General Physician</option>
-                <option>Other</option>
-              </select>
-            </div>
+              <label for="email">Address</label>
+<input type="text" placeholder="Address">
 
-            <div class="row">
-              <label for="degree">Degree Name</label>
-              <input id="degree" name="degree" type="text" placeholder="e.g., MBBS, MD" required />
-            </div>
-
-            <div class="row">
-              <label for="hospital">Hospital Name</label>
-              <input id="hospital" name="hospital" type="text" placeholder="Enter hospital name" required />
             </div>
 
             <div class="row">
@@ -77,13 +56,20 @@
               />
             </div>
             <div class="row">
-              <label for="password">Password</label>
+              <label for="password">Username</label>
               <input id="password" name="password" type="password" placeholder="Create a password" required />
             </div>
 
             <div class="row">
-              <label for="username">Username</label>
-              <input id="username" name="username" type="text" placeholder="Choose a username" required />
+              <label for="password">Password</label>
+              <input id="password" name="password" type="text" placeholder="Choose a username" required />
+            </div>
+            <div class="row">
+              <label for="confirmpassword">Confirm Password</label>
+              <input id="confirmPassword" name="confirmpassword" type="text" placeholder="Choose a username" required />
+            </div>
+            <div class="row">
+            <button class="btn btn-primary" type="submit">Register</button>
             </div>
         </form>
 

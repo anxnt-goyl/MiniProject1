@@ -20,13 +20,13 @@
     <ul>
       <li><a href="#home">Home</a></li>
       <li><a href="#features">Features</a></li>
-      <li><a href="#doctors">Find Doctor</a></li>
+      <li><a href="#doctors">Find Hospital</a></li>
       <li><a href="#contact">Contact</a></li>
       <li><a href="#team">Team</a></li>
     </ul>
     <div class="nav-btns">
       <a href="auth/patient-login.html" class="btn btn-blue">Patient Login</a>
-      <a href="auth/doctor-login.html" class="btn btn-dark">Doctor Login</a>
+      <a href="auth/doctor-login.html" class="btn btn-dark">Hospital Login</a>
     </div>
   </nav>
 
@@ -115,14 +115,14 @@
           <a href="auth/patient-login.html"><button class="btn btn-blue btn-full">Login as Patient</button></a>
         </div>
         <div class="login-card">
-          <h3>👨‍⚕️ Doctor Login</h3>
+          <h3>👨‍⚕️ Hospital Login</h3>
           <p>Monitor all admitted and waiting patients, view alerts, and prioritise treatment by severity.</p>
           <ul>
             <li>Unified view of all patients</li>
             <li>Auto triage by suffering score</li>
             <li>Instant critical alerts</li>
           </ul>
-          <a href="auth/doctor-login.html"><button class="btn btn-dark btn-full">Login as Doctor</button></a>
+          <a href="auth/doctor-login.html"><button class="btn btn-dark btn-full">Login as Hospital</button></a>
         </div>
       </div>
     </div>
@@ -130,22 +130,21 @@
 
   <!-- Find Doctor -->
   <section id="doctors">
-    <div class="container">
-      <h2 class="section-title">Find Your Doctor</h2>
-      <p class="section-sub">Explore doctors by specialization and reach out with one click.</p>
+  <div class="container">
+    <h2 class="section-title">Find Your Hospital</h2>
+    <p class="section-sub">Explore doctors by specialization and reach out with one click.</p>
 
-      <div class="filter-wrap" id="filterWrap">
-        <button class="filter-btn active" data-spec="all">All</button>
-        <button class="filter-btn" data-spec="Neurologist">Neurologist</button>
-        <button class="filter-btn" data-spec="Gynecologist">Gynecologist</button>
-        <button class="filter-btn" data-spec="Gastroenterologist">Gastroenterologist</button>
-        <button class="filter-btn" data-spec="Cardiologist">Cardiologist</button>
-        <button class="filter-btn" data-spec="Orthopedic">Orthopedic</button>
-      </div>
-
-      <div class="doctor-grid" id="doctorGrid"></div>
+    <div class="findhospital">
+      <select id="hospitalSelect" onchange="showDoctors()">
+        <option value="" selected disabled>Select Your Hospital</option>
+        <option value="apollo">Apollo Hospital</option>
+        <option value="aiims">AIIMS</option>
+      </select>
     </div>
-  </section>
+
+    <div id="doctorContainer"></div>
+  </div>
+</section>
 
   <!-- Contact -->
   <section id="contact">
