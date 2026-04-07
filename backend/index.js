@@ -20,6 +20,7 @@ app.use('/auth', express.static(path.join(__dirname, '..', 'frontend', 'home_das
 // routes
 app.use('/', homeRoutes);
 app.use('/patient', patientRoutes);
+app.use('/patient/register', patientRoutes);
 
 // db connection
 connectToDatabase('mongodb://localhost:27017/mydatabase')
