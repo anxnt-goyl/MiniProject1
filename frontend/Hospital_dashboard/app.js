@@ -1,11 +1,7 @@
-/*─────────────────────────────────────────────────────────
-   MediTrack — Patient Monitoring Dashboard
-   app.js  |  All data, rendering, and interactivity
-───────────────────────────────────────────────────────── */
 
-/* ── Patient Data ──────────────────────────────────────── */
+
 const patients = [
-  // ICU — Critical
+ 
   { id: 'ICU-01', name: 'Arjun Mehta',    dept: 'ICU',  pss: 92, status: 'critical',   priority: 'HIGH'   },
   { id: 'ICU-02', name: 'Fatima Noor',    dept: 'ICU',  pss: 88, status: 'critical',   priority: 'HIGH'   },
   { id: 'ICU-03', name: 'Karan Joshi',    dept: 'ICU',  pss: 95, status: 'critical',   priority: 'HIGH'   },
@@ -55,7 +51,7 @@ const patients = [
   { id: 'WARD-12',name: 'Kamla Devi',     dept: 'WARD', pss: 23, status: 'stable',     priority: 'LOW'    },
 ];
 
-/* ── Alert Data ────────────────────────────────────────── */
+
 const alerts = [
   { pid: 'ICU-04', msg: 'Respiratory distress alert', time: 'Just now'  },
   { pid: 'ICU-07', msg: 'Cardiac rhythm anomaly',      time: '4 min ago' },
@@ -66,12 +62,10 @@ const alerts = [
 let currentFilter = 'all';
 
 
-
-/** Returns color hex based on PSS score */
 function pssColor(pss) {
-  if (pss <= 30) return '#16a34a';   // green  — stable
-  if (pss <= 70) return '#d97706';   // yellow — monitoring
-  return '#dc2626';                  // red    — critical
+  if (pss <= 30) return '#16a34a';   
+  if (pss <= 70) return '#d97706';  
+  return '#dc2626';                 
 }
 
 
@@ -86,12 +80,11 @@ function statusLabel(s) {
   return map[s] || s;
 }
 
-/* ── Render: Patient Table ───── */
 function renderTable() {
   const search  = document.getElementById('searchInput').value.toLowerCase();
   const tbody   = document.getElementById('tableBody');
 
-  // Apply department filter + search
+
   const filtered = patients.filter(p => {
     const matchDept   = currentFilter === 'all' || p.dept === currentFilter;
     const matchSearch = p.id.toLowerCase().includes(search)   ||
@@ -100,11 +93,11 @@ function renderTable() {
     return matchDept && matchSearch;
   });
 
-  // Update subtitle
+  
   document.getElementById('tableSubtitle').textContent =
     `Showing ${filtered.length} of ${patients.length} active patients`;
 
-  // Build table rows
+ 
   tbody.innerHTML = filtered.map(p => {
     const col = pssColor(p.pss);
     return `
@@ -132,7 +125,7 @@ function renderTable() {
   }).join('');
 }
 
-/* ── Render: Live Alerts ───────────────────────────────── */
+
 function renderAlerts() {
   document.getElementById('alertsList').innerHTML = alerts.map(a => `
     <div class="alert-item">
@@ -145,19 +138,18 @@ function renderAlerts() {
     </div>`).join('');
 }
 
-/* ── Render: Stats Cards ───────────────────────────────── */
+
 function renderStats() {
   const crit = patients.filter(p => p.status === 'critical').length;
   const mon  = patients.filter(p => p.status === 'monitoring').length;
   const stab = patients.filter(p => p.status === 'stable').length;
-  // Total is always the full array length — never hardcoded
+ 
   document.getElementById('sTotal').textContent      = patients.length;
   document.getElementById('sCritical').textContent   = crit;
   document.getElementById('sMonitoring').textContent = mon;
   document.getElementById('sStable').textContent     = stab;
 }
 
-/* ── Filter Button Handler ─── */
 function setFilter(f, btn) {
   currentFilter = f;
   document.querySelectorAll('.f-btn').forEach(b => b.classList.remove('active'));
@@ -165,23 +157,23 @@ function setFilter(f, btn) {
   renderTable();
 }
 
-/* ── Search Input Handler ───────── */
+
 function applyFilters() {
   renderTable();
 }
 
-/* ── Refresh */
+
 function refreshData(btn) {
   btn.classList.add('spinning');
 
   setTimeout(() => {
-    // Randomly nudge PSS for ~35% of patients
+    
     patients.forEach(p => {
       if (Math.random() < 0.35) {
         const delta = Math.round((Math.random() - 0.5) * 12);
         p.pss = Math.min(100, Math.max(0, p.pss + delta));
 
-        // Re-derive status and priority from new PSS
+       
         if (p.pss >= 71) {
           p.status   = 'critical';
           p.priority = 'HIGH';
