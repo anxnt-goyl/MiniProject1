@@ -3,7 +3,7 @@ const Patient = require('../models/Patient');
 // show registration page
 function showRegistrationPage(req, res) {
     res.render('home_dashboard/auth/patient-register');
-}
+} 
 //show login page
 function showLoginPage(req, res) {
     res.render('home_dashboard/auth/patient-login');
@@ -40,7 +40,9 @@ async function login(req, res) {
         if(!patient) {
             return res.status(400).send('Invalid email or password');
         }
-        res.redirect('/patient/dashboard');
+        // res.redirect('/patient/dashboard');
+        //data transfer from db to patient ejs file for patient card
+        res.render('PatientDashboard/Patient', {patient});
     } catch (err) {
         res.status(500).send(err.message);
     }

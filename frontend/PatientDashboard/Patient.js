@@ -35,7 +35,29 @@ uploadArea.addEventListener('drop', e => {
     uploadBtn.disabled = false;
   }
 });
+//Start monitoring button click → send sensor data to backend, get PSS, update UI
+async function startMonitoring() {
+  console.log("Clicked");   // 🔥 add this
 
+  const temp = document.getElementById("temp").value;
+  const hr = document.getElementById("hr").value;
+  const bp = document.getElementById("bp").value;
+
+
+  const res = await fetch("/calculate-pss", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ temp, hr, bp })
+  });
+
+  const data = await res.json();
+
+  // Show PSS
+  document.getElementById("pss").textContent = data.pss;
+
+};
 // Upload button click → show popup
 uploadBtn.addEventListener('click', () => {
   popupOverlay.classList.add('active');

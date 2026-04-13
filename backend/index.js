@@ -5,6 +5,7 @@ const path = require('path');
 const homeRoutes = require('./routes/homeRoutes');
 const patientRoutes = require('./routes/patientRoutes');
 const doctorRoutes = require('./routes/doctorRoutes');
+const pss = require('./middleware/pss');
 // database
 const connectToDatabase = require('./connection');
 
@@ -26,6 +27,7 @@ app.use(express.static(path.join(__dirname, '..', 'frontend')));
 
 
 // 🔹 3. Routes
+app.use("/", pss);
 app.use('/', homeRoutes);
 app.use('/patient', patientRoutes);
 app.use('/hospital', doctorRoutes);

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Meditrack</title>
+</head>
+<body>
+
+<h2>Meditrack System</h2>
+
+<input type="text" id="userId" placeholder="Enter User ID">
+<button onclick="start()">Start Measurement</button>
+<button onclick="getData()">Get Data</button>
+
+<div id="result"></div>
+
+<script>
+  async function start() {
+    const userId = document.getElementById("userId").value;
+
+    await fetch("http://localhost:3000/start-measurement", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ userId })
+    });
+
+    alert("Measurement started");
+  }
+
+  async function getData() {
+    const userId = document.getElementById("userId").value;
+
+    const res = await fetch(`http://localhost:3000/get-data?userId=${userId}`);
+    const data = await res.json();
+
+    document.getElementById("result").innerHTML =
+      JSON.stringify(data, null, 2);
+  }
+</script>
+
+</body>
+</html>

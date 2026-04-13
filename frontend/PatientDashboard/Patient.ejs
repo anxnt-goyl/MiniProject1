@@ -48,10 +48,12 @@
       <div class="card-header">
         <span class="card-title">Patient Info</span>
         <span class="badge badge-red">Critical</span>
-      </div>
+      </div> 
+      <!-- data recieve and show on card -->
+
       <div class="info-rows">
-        <div class="info-row"><span class="info-label">Name</span><span class="info-value">Aarav Sharma</span></div>
-        <div class="info-row"><span class="info-label">Patient ID</span><span class="info-value">MT-PAT-10429</span></div>
+        <div class="info-row"><span class="info-label">Name</span><span class="info-value"><%= patient.fullName %></span></div>
+        <div class="info-row"><span class="info-label">Patient ID</span><span class="info-value">MT-PAT-<%= Math.floor(Math.random() * (1000 - 100 + 1)) + 100 %></span></div>
         <div class="info-row"><span class="info-label">Token Number</span><span class="info-value">T-17</span></div>
       </div>
       <div class="card-footer">
@@ -81,27 +83,42 @@
     </div>
 
     <!-- Sensor Data -->
-    <div class="card">
+      <div class="card">
       <div class="card-header">
-        <span class="card-title">Sensor Data</span>
+        <span class="card-title" >Sensor Data</span>
         <span class="badge badge-blue">Real-time</span>
       </div>
+
       <div class="sensor-grid">
+
+        <!-- BP -->
         <div class="sensor-chip">
           <div class="sensor-label">Blood Pressure (BP)</div>
-          <div class="sensor-value" id="bp">155/87 <span class="sensor-unit">mmHg</span></div>
+          <input type="text" id="bp" placeholder="Enter BP (e.g. 120/80)" required pattern="^\d{2,3}/\d{2,3}$" title="Please enter BP in format Systolic/Diastolic (e.g. 120/80)">
         </div>
+
+
+        <!-- Temperature -->
         <div class="sensor-chip">
           <div class="sensor-label">Temperature</div>
-          <div class="sensor-value" id="temp">39.2 <span class="sensor-unit">°C</span></div>
+          <input type="number" id="temp" placeholder="Enter temperature" required>
         </div>
+
+        <!-- Heart Rate -->
         <div class="sensor-chip">
           <div class="sensor-label">Heart Rate</div>
-          <div class="sensor-value" id="hr">74 <span class="sensor-unit">bpm</span></div>
+          <input type="number" id="hr" placeholder="Enter heart rate" required >
         </div>
+         <button onclick="startMonitoring()">Calculate PSS</button>
+
+      <h3>PSS: <span id="pss">--</span></h3>
+
+      <div class="sensor-note">
+        Elevated vitals detected. Staff may monitor you more closely.
       </div>
-      <div class="sensor-note">Elevated vitals detected. Staff may monitor you more closely.</div>
     </div>
+      </div>
+      
 
     <!-- Upload Documents -->
     <div class="card">
