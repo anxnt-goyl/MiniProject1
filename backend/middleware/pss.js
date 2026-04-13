@@ -6,7 +6,7 @@ router.post("/calculate-pss", (req, res) => {
 
   const temp = Number(req.body.temp);
   const hr = Number(req.body.hr);
-  const bp = req.body.bp;
+  const bp = Number(req.body.bp);
 
   const waitingTime = 32;
   const density = 60;
@@ -15,8 +15,7 @@ router.post("/calculate-pss", (req, res) => {
   const pss =
     0.4 * waitingTime +
     0.2 * density +
-    0.2 * temp +
-    0.2 * delay;
+    0.2 * temp ;
 
   res.json({ pss });
 });
