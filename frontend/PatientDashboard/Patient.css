@@ -40,7 +40,6 @@ body {
       gap: 8px;
     }
 
-/* ── NAV ─────────────────────────────────────── */
 nav {
   background: rgba(255,255,255,0.92);
   backdrop-filter: blur(12px);
@@ -49,7 +48,7 @@ nav {
   align-items: center;
   justify-content: space-between;
   padding: 0 2.5rem;
-  height: 68px;
+  height: 62px;
   position: sticky;
   top: 0;
   z-index: 100;
@@ -96,7 +95,6 @@ main { max-width: 1200px; margin: 0 auto; padding: 2.2rem 2rem 3rem; }
   gap: 1.25rem;
 }
 
-/* ── CARD ────────────────────────────────────── */
 .card {
   background: var(--card-bg);
   border: 1px solid var(--card-border);
