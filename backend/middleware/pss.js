@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 router.post("/calculate-pss", (req, res) => {
-  console.log("API HIT", req.body);
+ // console.log("API HIT", req.body);
 
   const temp = Number(req.body.temp);
   const hr = Number(req.body.hr);
