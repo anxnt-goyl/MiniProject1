@@ -1,9 +1,13 @@
-app.post("/calculate-pss", (req, res) => {
+const express = require("express");
+const router = express.Router();
+
+router.post("/calculate-pss", (req, res) => {
   console.log("API HIT", req.body);
 
   const temp = Number(req.body.temp);
   const hr = Number(req.body.hr);
-  const bp = Number(req.body.bp);
+  const bp = req.body.bp;
+
   const waitingTime = 32;
   const density = 60;
   const delay = 5;
@@ -16,3 +20,5 @@ app.post("/calculate-pss", (req, res) => {
 
   res.json({ pss });
 });
+
+module.exports = router;
