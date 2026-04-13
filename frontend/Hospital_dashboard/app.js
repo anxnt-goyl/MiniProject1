@@ -106,7 +106,7 @@ function renderTable() {
           <div class="pid-link">${p.id}</div>
           <div class="pid-name">${p.name}</div>
         </td>
-        <td><span class="dept ${p.dept}">${p.dept}</span></td>
+   
         <td>
           <div class="pss-cell">
             <div class="pss-bar-track">
