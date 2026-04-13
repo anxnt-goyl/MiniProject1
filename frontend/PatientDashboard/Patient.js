@@ -5,7 +5,6 @@ const uploadBtn       = document.getElementById('upload-btn');
 const popupOverlay    = document.getElementById('popup-overlay');
 const popupClose      = document.getElementById('popup-close');
 
-// Label for="real-file-input" handles opening file picker natively — no JS click needed
 
 realInput.addEventListener('change', () => {
   const file = realInput.files[0];
@@ -42,7 +41,7 @@ uploadBtn.addEventListener('click', () => {
   popupOverlay.classList.add('active');
 });
 
-// Close popup — file stays visible, button disabled to prevent re-upload
+
 popupClose.addEventListener('click', () => {
   popupOverlay.classList.remove('active');
   uploadBtn.disabled = true;
@@ -58,8 +57,7 @@ popupOverlay.addEventListener('click', (e) => {
   }
 });
 
-// ── SENSOR DATA — FIXED, NO FLUCTUATION ──────────
-// Values are static and never change.
+
 
 // ── COUNTDOWN TIMER ───────────────────────────────
 let totalSec = 6 * 60 + 35;

@@ -63,10 +63,9 @@ const alerts = [
   { pid: 'ICU-11', msg: 'SpO2 critically low',          time: '1 min ago' },
 ];
 
-/* ── State ─────────────────────────────────────────────── */
 let currentFilter = 'all';
 
-/* ── Helpers ───────────────────────────────────────────── */
+
 
 /** Returns color hex based on PSS score */
 function pssColor(pss) {
@@ -75,19 +74,19 @@ function pssColor(pss) {
   return '#dc2626';                  // red    — critical
 }
 
-/** Maps status string → CSS class name for row accent bar */
+
 function rowClass(status) {
   const map = { critical: 'row-critical', monitoring: 'row-monitoring', stable: 'row-stable' };
   return map[status] || '';
 }
 
-/** Capitalises first letter of status label */
+
 function statusLabel(s) {
   const map = { critical: 'Critical', monitoring: 'Monitoring', stable: 'Stable' };
   return map[s] || s;
 }
 
-/* ── Render: Patient Table ─────────────────────────────── */
+/* ── Render: Patient Table ───── */
 function renderTable() {
   const search  = document.getElementById('searchInput').value.toLowerCase();
   const tbody   = document.getElementById('tableBody');
@@ -158,7 +157,7 @@ function renderStats() {
   document.getElementById('sStable').textContent     = stab;
 }
 
-/* ── Filter Button Handler ─────────────────────────────── */
+/* ── Filter Button Handler ─── */
 function setFilter(f, btn) {
   currentFilter = f;
   document.querySelectorAll('.f-btn').forEach(b => b.classList.remove('active'));
@@ -166,12 +165,12 @@ function setFilter(f, btn) {
   renderTable();
 }
 
-/* ── Search Input Handler ──────────────────────────────── */
+/* ── Search Input Handler ───────── */
 function applyFilters() {
   renderTable();
 }
 
-/* ── Refresh / Live Simulation ─────────────────────────── */
+/* ── Refresh */
 function refreshData(btn) {
   btn.classList.add('spinning');
 
@@ -202,13 +201,12 @@ function refreshData(btn) {
   }, 600);
 }
 
-/* ── Auto-refresh every 8 seconds ─────────────────────── */
 setInterval(() => {
   const btn = document.querySelector('.refresh-btn');
   if (btn) refreshData(btn);
 }, 8000);
 
-/* ── Init ──────────────────────────────────────────────── */
-renderStats();   // compute all 4 stat cards from live data on load
+
+renderStats();   
 renderTable();
 renderAlerts();
