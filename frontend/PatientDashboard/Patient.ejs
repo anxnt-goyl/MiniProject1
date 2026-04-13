@@ -48,10 +48,12 @@
       <div class="card-header">
         <span class="card-title">Patient Info</span>
         <span class="badge badge-red">Critical</span>
-      </div>
+      </div> 
+      <!-- data recieve and show on card -->
+
       <div class="info-rows">
-        <div class="info-row"><span class="info-label">Name</span><span class="info-value">Aarav Sharma</span></div>
-        <div class="info-row"><span class="info-label">Patient ID</span><span class="info-value">MT-PAT-10429</span></div>
+        <div class="info-row"><span class="info-label">Name</span><span class="info-value"><%= patient.fullName %></span></div>
+        <div class="info-row"><span class="info-label">Patient ID</span><span class="info-value">MT-PAT-<%= Math.floor(Math.random() * (1000 - 100 + 1)) + 100 %></span></div>
         <div class="info-row"><span class="info-label">Token Number</span><span class="info-value">T-17</span></div>
       </div>
       <div class="card-footer">
