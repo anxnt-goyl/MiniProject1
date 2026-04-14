@@ -37,7 +37,7 @@ uploadArea.addEventListener('drop', e => {
 });
 //Start monitoring button click → send sensor data to backend, get PSS, update UI
 async function startMonitoring() {
-  console.log("Clicked");   // 🔥 add this
+  console.log("Clicked"); 
 
   const temp = document.getElementById("temp").value;
   const hr = document.getElementById("hr").value;

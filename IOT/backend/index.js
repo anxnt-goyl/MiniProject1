@@ -8,7 +8,6 @@ app.use(express.json());
 
 mongoose.connect("mongodb://127.0.0.1:27017/meditrack");
 
-// Schema
 const DataSchema = new mongoose.Schema({
   userId: String,
   heartRate: Number,
@@ -18,14 +17,11 @@ const DataSchema = new mongoose.Schema({
 
 const Data = mongoose.model("Data", DataSchema);
 
-// Active user
 let activeUser = null;
 
-// Start measurement
 app.post("/start-measurement", (req, res) => {
   activeUser = req.body.userId;
 
-  // Simulate sensor data after 2 sec
   setTimeout(async () => {
     if (activeUser) {
       await Data.create({
@@ -41,7 +37,7 @@ app.post("/start-measurement", (req, res) => {
 app.get("/", (req, res) => {
   res.send("Meditrack Backend Running 🚀");
 });
-// Get data
+
 app.get("/get-data", async (req, res) => {
   const data = await Data.find({ userId: req.query.userId });
   res.json(data);
