@@ -4,7 +4,7 @@
 #define TRIG2 13   // Exit sensor TRIG
 #define ECHO2 25   // Exit sensor ECHO
 
-#define LED_PIN 14 // LED pin
+// #define LED_PIN 14 // LED pin
 
 long duration1, duration2;
 float distance1, distance2;
@@ -26,8 +26,8 @@ void setup() {
   pinMode(TRIG2, OUTPUT);
   pinMode(ECHO2, INPUT);
 
-  pinMode(LED_PIN, OUTPUT);
-  digitalWrite(LED_PIN, LOW);
+  // pinMode(LED_PIN, OUTPUT);
+  // digitalWrite(LED_PIN, LOW);
 }
 
 void loop() {
@@ -85,11 +85,11 @@ void loop() {
   }
 
   // -------- LED LOGIC --------
-  if (entryCount >= 50) {
-    digitalWrite(LED_PIN, HIGH);
-  } else {
-    digitalWrite(LED_PIN, LOW);
-  }
+  // if (entryCount >= 50) {
+  //   digitalWrite(LED_PIN, HIGH);
+  // } else {
+  //   digitalWrite(LED_PIN, LOW);
+  // }
 
   delay(100);
 }
