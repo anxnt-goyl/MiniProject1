@@ -33,7 +33,7 @@ app.use(express.static(path.join(__dirname, '..', 'frontend')));
 
 
 // 🔹 3. Routes
-app.use("/", pss);
+app.use("/patient", pss);
 app.use('/', homeRoutes);
 app.use('/patient', patientRoutes);
 app.use('/hospital', doctorRoutes);

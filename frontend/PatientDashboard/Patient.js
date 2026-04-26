@@ -35,6 +35,17 @@ uploadArea.addEventListener('drop', e => {
     uploadBtn.disabled = false;
   }
 });
+//waiting time
+async function loadWaitingTime() {
+  const res = await fetch(`/patient/waiting/${hospitalName}/${pemail}`);
+  const data = await res.json();
+  // console.log("WAIT DATA:", data);
+
+  document.getElementById("waitingTime").textContent = data.waitingTime;
+  document.getElementById("wait-bar").style.width = data.waitingTime + "%";
+}
+loadWaitingTime();  
+setInterval(loadWaitingTime, 5000);
 //pss
 async function startMonitoring() {
   console.log("Clicked"); 

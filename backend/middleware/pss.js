@@ -37,4 +37,16 @@ router.get("/api/patients", async (req, res) => {
   const patients = await Patient.find();
   res.json(patients);
 });
+router.get('/waiting/:hospital/:email', async (req, res) => {
+  const { hospital, email } = req.params;
+  const current = await Patient.findOne({ email });
+  const count = await Patient.countDocuments({
+    hospital: new RegExp(`^${hospital}$`, "i"),
+    createdAt: { $lt: current.createdAt }
+  });
+
+  const waitingTime = count * 5;
+
+  res.json({ waitingTime });
+});
 module.exports = router;

@@ -68,10 +68,10 @@
         <span class="card-title">Waiting Details</span>
         <span class="badge badge-green">Queue Active</span>
       </div>
-      <div class="wait-metrics">
+        <div class="wait-metrics">
         <div class="wait-metric">
           <div class="wait-metric-label">Waiting Time</div>
-          <div class="wait-metric-value">32 <span class="wait-unit">min</span></div>
+          <div class="wait-metric-value" id="waitingTime">32 <span class="wait-unit">min</span></div>
         </div>
         <!-- <div class="wait-metric">
           <div class="wait-metric-label">Estimated Time</div>
@@ -195,6 +195,7 @@
 </main>
 <script>
   const pemail = "<%= patient.email %>";
+  const hospitalName = "<%= patient.hospital %>";
 </script>
 <script src="/patientDashboard/Patient.js"></script>
 </body>
