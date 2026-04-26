@@ -33,4 +33,8 @@ router.post("/api/pss", async (req, res) => {
 
     res.json(updated);
 });
+router.get("/api/patients", async (req, res) => {
+  const patients = await Patient.find();
+  res.json(patients);
+});
 module.exports = router;

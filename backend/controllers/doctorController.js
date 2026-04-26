@@ -13,10 +13,16 @@ function showLoginPage(req, res) {
 }
 //hospital dashboard page
 function showDashboard(req, res) {
-    const doctorUser = req.session.doctor;
+  const doctorUser = req.session.doctor;
 
-    res.render('hospital_dashboard/index',{hospitalName: doctorUser.hospitalName});
+  if (!doctorUser) {
+    console.log("Session missing!");
+    return res.redirect('/hospital/login');
+  }
 
+  res.render('hospital_dashboard/index', {
+    hospitalName: doctorUser.hospitalName
+  });
 }
 //register action
 async function register(req, res) { 
