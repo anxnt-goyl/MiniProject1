@@ -4,7 +4,8 @@ let currentFilter = 'all';
 //  LOAD PATIENTS FROM BACKEND
 async function loadPatients() {
     try {
-        const res = await fetch("/api/patients");
+        // const res = await fetch("/api/patients");
+        const res = await fetch(`/patient/by-hospital?hospital=${hospitalName}`);
         const data = await res.json();
 
         console.log("API DATA:", data);
@@ -41,7 +42,7 @@ async function loadPatients() {
     }
 }
 
-setInterval(loadPatients, 2000);
+setInterval(loadPatients, 5000);
 
 //  ALERTS (STATIC FOR NOW)
 const alerts = [

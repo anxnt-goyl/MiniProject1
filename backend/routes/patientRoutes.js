@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const Patient = require('../models/patient');
 
 const { 
     showLoginPage, 
@@ -32,6 +33,19 @@ router.post('/register', register);
 router.post('/login', login);
 // get patients by hospital
 router.get("/by-hospital", getPatientsByHospital);
+
+
+router.put('/complete/:id', async (req, res) => {
+  try {
+    await Patient.findByIdAndUpdate(req.params.id, {
+      status: "completed"
+    });
+
+    res.json({ message: "Patient completed" });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 
 module.exports = router;

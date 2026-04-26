@@ -50,12 +50,12 @@ const patientDataSchema = new mongoose.Schema({
 
   status: {
     type: String,
-    default: "Stable"
+    default: "active"
   }
 
 }, { timestamps: true });
 
 //define the model
-const Patient = mongoose.model("Patient", patientDataSchema);
+const Patient = mongoose.models.Patient || mongoose.model("Patient", patientDataSchema);
 
 module.exports = Patient;

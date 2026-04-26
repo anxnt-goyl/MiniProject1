@@ -68,7 +68,12 @@ async function login(req, res) {
 async function getPatientsByHospital(req, res) {
     try {
         const hospital = req.query.hospital;
-        const patients = await Patient.find({ hospital });
+         const patients = await Patient.find({
+            hospital: hospital,
+            status: { $ne: "completed" }   
+        });
+
+        
         res.json(patients);
     } catch (err) {
         res.status(500).json({ error: err.message });
