@@ -35,7 +35,7 @@ uploadArea.addEventListener('drop', e => {
     uploadBtn.disabled = false;
   }
 });
-//Start monitoring button click → send sensor data to backend, get PSS, update UI
+//pss
 async function startMonitoring() {
   console.log("Clicked"); 
 
@@ -67,7 +67,7 @@ uploadBtn.addEventListener('click', () => {
 popupClose.addEventListener('click', () => {
   popupOverlay.classList.remove('active');
   uploadBtn.disabled = true;
-  uploadBtn.textContent = 'Uploaded ✓';
+  uploadBtn.textContent = 'Uploaded ';
 });
 
 // Close popup on overlay click
@@ -75,7 +75,7 @@ popupOverlay.addEventListener('click', (e) => {
   if (e.target === popupOverlay) {
     popupOverlay.classList.remove('active');
     uploadBtn.disabled = true;
-    uploadBtn.textContent = 'Uploaded ✓';
+    uploadBtn.textContent = 'Uploaded';
   }
 });
 
@@ -87,12 +87,12 @@ const cdEl    = document.getElementById('countdown');
 const barEl   = document.getElementById('wait-bar');
 const fullSec = totalSec;
 
-setInterval(() => {
-  if (totalSec <= 0) return;
-  totalSec--;
-  const m = String(Math.floor(totalSec / 60)).padStart(2, '0');
-  const s = String(totalSec % 60).padStart(2, '0');
-  cdEl.textContent = `${m}:${s}`;
-  const pct = ((fullSec - totalSec) / fullSec) * 100;
-  barEl.style.width = Math.min(pct, 100) + '%';
-}, 1000);
+// setInterval(() => {
+//   if (totalSec <= 0) return;
+//   totalSec--;
+//   const m = String(Math.floor(totalSec / 60)).padStart(2, '0');
+//   const s = String(totalSec % 60).padStart(2, '0');
+//   cdEl.textContent = `${m}:${s}`;
+//   const pct = ((fullSec - totalSec) / fullSec) * 100;
+//   barEl.style.width = Math.min(pct, 100) + '%';
+// }, 1000);
