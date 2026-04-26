@@ -39,15 +39,27 @@ const patientDataSchema = new mongoose.Schema({
     required: true,
     minlength: 6
   },
+
   hospital: {
   type: String,
   required: true
   },
+
+  createdAt: {
+  type: Date,
+  default: Date.now
+  },
+
   pss: {
     type: Number,
     default: 0
   },
 
+  waitingTime: {
+  type: Number,
+  default: 0
+  },
+  
   status: {
     type: String,
     default: "active"
