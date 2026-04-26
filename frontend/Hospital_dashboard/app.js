@@ -4,14 +4,14 @@ let currentFilter = 'all';
 //  LOAD PATIENTS FROM BACKEND
 async function loadPatients() {
     try {
-        const res = await fetch(`/patient/by-hospital?hospital=${hospitalName}`);
+        const res = await fetch("/api/patients");
         const data = await res.json();
 
         console.log("API DATA:", data);
 
         //  MAP DB → UI FORMAT
         patients = data.map(p => {
-            const pss = Math.floor(Math.random() * 100);
+            const pss = p.pss || 0;
 
             let status = 'stable';
             let priority = 'LOW';
@@ -40,7 +40,7 @@ async function loadPatients() {
     }
 }
 
-loadPatients();
+setInterval(loadPatients, 2000);
 
 //  ALERTS (STATIC FOR NOW)
 const alerts = [
@@ -61,7 +61,6 @@ function statusLabel(s) {
   return s.charAt(0).toUpperCase() + s.slice(1);
 }
 
-//  RENDER TABLE
 function renderTable() {
   const search = document.getElementById('searchInput').value.toLowerCase();
   const tbody = document.getElementById('tableBody');
@@ -120,7 +119,6 @@ function applyFilters() {
   renderTable();
 }
 
-//  REFRESH (FAKE LIVE UPDATE)
 function refreshData(btn) {
   btn.classList.add('spinning');
 
