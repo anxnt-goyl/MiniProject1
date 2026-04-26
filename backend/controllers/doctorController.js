@@ -13,7 +13,7 @@ function showDashboard(req, res) {
     res.render('hospital_dashboard/index');
 }
 //register action
-async function register(req, res) {
+async function register(req, res) { 
     const { hospitalName , address , email , phone , password } = req.body;
     if(!hospitalName || !address || !email || !phone || !password) {
         return res.status(400).send('All fields are required');
@@ -49,10 +49,23 @@ async function login(req, res) {
     }
 }
 
+
+
+async function showPatientRegister(req, res) {
+    try {
+        const hospitals = await doctor.distinct('hospitalName');
+
+        res.render('home_dashboard/auth/patient-register', { hospitals });
+    } catch (err) {
+        res.status(500).send(err.message);
+    }
+}
+
 module.exports = {
     showRegistrationPage,
     showLoginPage,
     showDashboard,
     login,
-    register
+    register,
+    showPatientRegister
 };

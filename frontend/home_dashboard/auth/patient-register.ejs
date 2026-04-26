@@ -96,15 +96,19 @@
               type="password"
               placeholder="Create a password"
               required
-            />
+            /> 
           </div>
           <div class="row">
             <label>Select Hospital</label>
             <select name="hospital" id="hospitalDropdown" required>
-              <option value="" selected disabled >Select hospital</option>
-            </select>
-          </div>
+              <option value="" disabled selected>Select Hospital</option>
 
+              <% hospitals.forEach(hospital => { %>
+                  <option value="<%= hospital %>"><%= hospital %></option>
+              <% }) %>
+          </select>
+          </div>
+ 
           <div class="row">
             <button class="btn btn-primary" type="submit">Register</button>
           </div>

@@ -45,3 +45,4 @@ connectToDatabase('mongodb://localhost:27017/projectDB')
     .catch((err) => {
         console.error('❌ Database connection failed:', err);
     });
+    

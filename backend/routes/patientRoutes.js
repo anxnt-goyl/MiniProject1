@@ -1,15 +1,34 @@
 const express = require('express');
 const router = express.Router();
-const { showRegistrationPage , showLoginPage , login , register , showDashboard} = require('../controllers/patientController');
 
-//page routes
-router.get('/register', showRegistrationPage);
+const { 
+    showLoginPage, 
+    login, 
+    register, 
+    showDashboard,
+    showPatientRegister   
+} = require('../controllers/patientController');
+
+
+// ================== PAGE ROUTES ==================
+
+// show patient registration form (with hospitals)
+router.get('/register', showPatientRegister);
+
+// show login page
 router.get('/login', showLoginPage);
+
+// dashboard (should be protected later 🔐)
 router.get('/dashboard', showDashboard);
 
-//action routes
 
+// ================== ACTION ROUTES ==================
+
+// handle patient registration
 router.post('/register', register);
+
+// handle login
 router.post('/login', login);
- 
+
+
 module.exports = router;
