@@ -25,6 +25,7 @@ async function loadPatients() {
             }
 
             return {
+                _id:p._id,
                 name: p.fullName || p.name,
                 pss,
                 status,
@@ -98,9 +99,28 @@ function renderTable() {
         <td>
           <span class="pri ${p.priority}">${p.priority}</span>
         </td>
+        <td>
+        <input type="checkbox" onchange="markDone('${p._id}')">
+        </td>
       </tr>
     `;
   }).join('');
+}
+
+async function markDone(id) {
+  try {
+    await fetch(`/patient/complete/${id}`, {
+      method: "PUT"
+    });
+
+    patients = patients.filter(p => p._id !== id);
+
+    renderStats();
+    renderTable();
+
+  } catch (err) {
+    console.log("Error marking done:", err);
+  }
 }
 
 //  RENDER STATS
