@@ -65,11 +65,21 @@ async function login(req, res) {
         res.status(500).send(err.message);
     }
 }
+async function getPatientsByHospital(req, res) {
+    try {
+        const hospital = req.query.hospital;
+        const patients = await Patient.find({ hospital });
+        res.json(patients);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+}
 
 module.exports = {
     showLoginPage,
     login,
     register,
     showDashboard,
-    showPatientRegister
+    showPatientRegister,
+    getPatientsByHospital
 };

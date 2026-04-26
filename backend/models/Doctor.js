@@ -19,7 +19,7 @@ const hospitalSchema = new mongoose.Schema({
     required: true,
     unique: true,
     lowercase: true,
-    match: [/\S+@\S+\.\S+/, 'Please use a valid email']
+    match: [/^[a-zA-Z0-9._%+-]+@h\.com$/, "Only @h.com emails allowed"]
   },
 
   phone: {

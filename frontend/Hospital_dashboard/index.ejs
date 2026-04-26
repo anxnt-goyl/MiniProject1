@@ -12,7 +12,10 @@
 <link rel="stylesheet" href="/Hospital_dashboard/style.css"/>
 </head>
 <body>
-
+  
+<script>
+  const hospitalName = "<%= hospitalName %>";
+</script>
 
 <nav>
   <div class="nav-left">
@@ -111,17 +114,17 @@
           <input
             type="text"
             id="searchInput"
-            placeholder="Search patient ID or department…"
+            placeholder="Search patient name"
             oninput="applyFilters()"
           />
         </div>
-        <div class="filter-group">
+        <!-- <div class="filter-group">
           <button class="f-btn active" onclick="setFilter('all', this)">≡ All Depts</button>
           <button class="f-btn" onclick="setFilter('ICU', this)">ICU</button>
           <button class="f-btn" onclick="setFilter('ER', this)">ER</button>
           <button class="f-btn" onclick="setFilter('OPD', this)">OPD</button>
           <button class="f-btn" onclick="setFilter('WARD', this)">Ward</button>
-        </div>
+        </div> -->
       </div>
 
      
@@ -129,7 +132,7 @@
         <table>
           <thead>
             <tr>
-              <th>Patient ID</th>
+              <th>Patient Name</th>
               <!-- <th>Department</th> -->
               <th>PSS Score</th>
               <th>Status</th>

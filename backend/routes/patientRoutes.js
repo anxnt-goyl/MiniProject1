@@ -6,7 +6,8 @@ const {
     login, 
     register, 
     showDashboard,
-    showPatientRegister   
+    showPatientRegister ,
+    getPatientsByHospital  
 } = require('../controllers/patientController');
 
 
@@ -29,6 +30,8 @@ router.post('/register', register);
 
 // handle login
 router.post('/login', login);
+// get patients by hospital
+router.get("/by-hospital", getPatientsByHospital);
 
 
 module.exports = router;

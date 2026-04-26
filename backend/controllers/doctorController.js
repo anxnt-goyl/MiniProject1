@@ -1,5 +1,7 @@
 const doctor = require('../models/doctor');
 
+
+
 // show registration page
 function showRegistrationPage(req, res) {
     res.render('home_dashboard/auth/doctor-register');
@@ -7,10 +9,14 @@ function showRegistrationPage(req, res) {
 //show login page
 function showLoginPage(req, res) {
     res.render('home_dashboard/auth/doctor-login');
+
 }
 //hospital dashboard page
 function showDashboard(req, res) {
-    res.render('hospital_dashboard/index');
+    const doctorUser = req.session.doctor;
+
+    res.render('hospital_dashboard/index',{hospitalName: doctorUser.hospitalName});
+
 }
 //register action
 async function register(req, res) { 
@@ -43,6 +49,7 @@ async function login(req, res) {
         if(doctorUser.password !== password) {
             return res.status(400).send('Invalid email or password');
         }
+        req.session.doctor = doctorUser;
         res.redirect('/hospital/dashboard');
     }catch (err) {
         res.status(500).send(err.message);
@@ -61,11 +68,13 @@ async function showPatientRegister(req, res) {
     }
 }
 
+
 module.exports = {
     showRegistrationPage,
     showLoginPage,
     showDashboard,
     login,
     register,
-    showPatientRegister
+    showPatientRegister,
+    
 };

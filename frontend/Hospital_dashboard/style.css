@@ -329,7 +329,7 @@ td {
      font-family: 'JetBrains Mono', monospace;
      }
 .pid-name  { 
-  font-size: 11px;
+  font-size: 15px;
    color: var(--muted);
     margin-top: 2px;
    }

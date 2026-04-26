@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const session = require('express-session');
 
 // routes
 const homeRoutes = require('./routes/homeRoutes');
@@ -21,6 +22,11 @@ app.set('views', path.join(__dirname, '..', 'frontend'));
 // 🔹 2. Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(session({
+    secret: 'mySecretKey',
+    resave: false,
+    saveUninitialized: true
+}));
 
 // static files (CSS, JS, images)
 app.use(express.static(path.join(__dirname, '..', 'frontend')));
@@ -34,7 +40,7 @@ app.use('/hospital', doctorRoutes);
 
 
 // 🔹 4. Database Connection + Server Start
-connectToDatabase('mongodb://localhost:27017/projectDB')
+connectToDatabase('mongodb://localhost:27017/miniproject1')
     .then(() => {
         console.log('✅ Connected to MongoDB');
 
