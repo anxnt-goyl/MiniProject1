@@ -19,11 +19,16 @@
 
         <div class="card-header">
           <h2 class="title">Patient Registration</h2>
-          <p class="helper">Create your account to access real-time health monitoring.</p>
+          <p class="helper">
+            Create your account to access real-time health monitoring.
+          </p>
         </div>
 
         <div class="card-illustration">
-          <img src="/home_dashboard/assets/patient-register.png" alt="AI cartoon doctors and patients" />
+          <img
+            src="/home_dashboard/assets/patient-register.png"
+            alt="AI cartoon doctors and patients"
+          />
         </div>
 
         <form action="/patient/register" method="POST">
@@ -37,56 +42,69 @@
               required
             />
           </div>
-          
 
-            <div class="row">
-              <label for="age">Age</label>
-              <input id="age" name="age" type="number" min="0" placeholder="Enter your age" required />
-            </div>
+          <div class="row">
+            <label for="age">Age</label>
+            <input
+              id="age"
+              name="age"
+              type="number"
+              min="0"
+              placeholder="Enter your age"
+              required
+            />
+          </div>
 
-            <div class="row">
-              <label for="gender">Gender</label>
-              <select id="gender" name="gender" required>
-                <option value="" selected disabled>Select gender</option>
-                <option>Male</option>
-                <option>Female</option>
-                <option>Other</option>
-              </select>
-            </div>
+          <div class="row">
+            <label for="gender">Gender</label>
+            <select id="gender" name="gender" required>
+              <option value="" selected disabled>Select gender</option>
+              <option>Male</option>
+              <option>Female</option>
+              <option>Other</option>
+            </select>
+          </div>
 
-            <div class="row">
-              <label for="email">Email</label>
-              <input id="email" name="email" type="email" placeholder="you@example.com" required />
-            </div>
+          <div class="row">
+            <label for="email">Email</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              placeholder="you@example.com"
+              required
+            />
+          </div>
 
-            <div class="row">
-              <label for="phone">Phone Number</label>
-              <input
-                id="phone"
-                name="phone"
-                type="tel"
-                placeholder="Enter phone number"
-                required
-                data-phone-input
-              />
-            </div>
+          <div class="row">
+            <label for="phone">Phone Number</label>
+            <input
+              id="phone"
+              name="phone"
+              type="tel"
+              placeholder="Enter phone number"
+              required
+              data-phone-input
+            />
+          </div>
 
-            <div class="row">
+          <div class="row">
+            <label for="password">Password</label>
+            <input
+              id="password"
+              name="password"
+              type="password"
+              placeholder="Create a password"
+              required
+            />
+          </div>
+          <div class="row">
+            <label>Select Hospital</label>
+            <select name="hospital" id="hospitalDropdown" required>
+              <option value="" selected disabled >Select hospital</option>
+            </select>
+          </div>
 
-              <label for="password">Password</label>
-              <input
-                id="password"
-                name="password"
-                type="password"
-                placeholder="Create a password"
-                required
-              />
-            </div>
-            <!-- <div class="row">
-              <label for="confirmpassword">Confirm Password</label>
-              <input id="confirmPassword" name="confirmpassword" type="text" placeholder="Choose a username" required />
-            </div> -->
-    
           <div class="row">
             <button class="btn btn-primary" type="submit">Register</button>
           </div>
@@ -101,4 +119,3 @@
     <script src="/home_dashboard/auth/script.js"></script>
   </body>
 </html>
-

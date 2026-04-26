@@ -38,7 +38,11 @@ const patientDataSchema = new mongoose.Schema({
     type: String,
     required: true,
     minlength: 6
-  }
+  },
+  hospital: {
+  type: String,
+  required: true
+}
 
 }, { timestamps: true });
 

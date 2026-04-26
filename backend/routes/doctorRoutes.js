@@ -6,6 +6,7 @@ const { showRegistrationPage , showLoginPage , login, register,showDashboard} = 
 router.get('/register', showRegistrationPage);
 router.get('/login', showLoginPage);
 router.get('/dashboard', showDashboard);
+
 //action routes
 router.post('/register', register);
 router.post('/login', login);
