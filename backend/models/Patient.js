@@ -42,7 +42,16 @@ const patientDataSchema = new mongoose.Schema({
   hospital: {
   type: String,
   required: true
-}
+  },
+  pss: {
+    type: Number,
+    default: 0
+  },
+
+  status: {
+    type: String,
+    default: "Stable"
+  }
 
 }, { timestamps: true });
 

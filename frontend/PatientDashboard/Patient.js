@@ -43,6 +43,11 @@ async function startMonitoring() {
   const hr = document.getElementById("hr").value;
   const bp = document.getElementById("bp").value;
 
+  if (isNaN(temp) || isNaN(hr) || !bp) {
+    alert("Enter valid data");
+    return;
+}
+
 
   const res = await fetch("/calculate-pss", {
     method: "POST",
@@ -54,11 +59,21 @@ async function startMonitoring() {
 
   const data = await res.json();
 
-  // Show PSS
   document.getElementById("pss").textContent = data.pss;
+  // console.log("Patient Name:", patientName);
 
+  await fetch("/api/pss", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      ptemail : pemail,
+      pss: data.pss,
+      status: "Monitoring"
+    })
+  });
 };
-// Upload button click → show popup
 uploadBtn.addEventListener('click', () => {
   popupOverlay.classList.add('active');
 });

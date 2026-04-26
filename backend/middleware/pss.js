@@ -18,5 +18,19 @@ router.post("/calculate-pss", (req, res) => {
 
   res.json({ pss });
 });
+const Patient = require("../models/Patient");
 
+router.post("/api/pss", async (req, res) => {
+    const { ptemail, pss, status } = req.body;
+
+    console.log("DATA RECEIVED:", req.body);
+
+    const updated = await Patient.findOneAndUpdate(
+        { email : ptemail },
+        { pss, status },
+        { returnDocument: 'after' }
+    );
+
+    res.json(updated);
+});
 module.exports = router;
