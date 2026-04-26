@@ -11,5 +11,5 @@ router.get('/dashboard', showDashboard);
 router.post('/register', register);
 router.post('/login', login);
 router.get('/patient/register', showPatientRegister);
- 
+
 module.exports = router;

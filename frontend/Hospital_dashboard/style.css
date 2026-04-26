@@ -23,7 +23,7 @@
 
 body {
   font-family: 'Plus Jakarta Sans', sans-serif;
-  background: var(--bg);
+  background: var(--blue);
   color: var(--text);
   min-height: 100vh;
 }
@@ -96,7 +96,15 @@ nav {
   color: var(--accent); 
   font-weight: 600;
  }
-
+.btn-logout {
+  padding: 7px 18px; border-radius: 999px;
+  border: 1.5px solid #2563eb ;
+  background: transparent;
+  color: var(--blue); font-weight: 600; font-size: 0.85rem;
+  cursor: pointer; transition: all .18s;
+  color: #2563eb;
+}
+/* .btn-logout:hover { background: var(--blue); color: #fff; } */
 
 .nav-right { 
   display: flex; 
