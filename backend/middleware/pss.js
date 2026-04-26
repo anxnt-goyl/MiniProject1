@@ -10,7 +10,6 @@ router.post("/calculate-pss", (req, res) => {
 
   const waitingTime = 32;
   const density = 60;
-  const delay = 5;
 
   const pss =
     0.4 * waitingTime +
