@@ -10,7 +10,7 @@ function showRegistrationPage(req, res) {
 function showLoginPage(req, res) {
     res.render('home_dashboard/auth/doctor-login');
 
-}
+}//
 //hospital dashboard page
 function showDashboard(req, res) {
   const doctorUser = req.session.doctor;
