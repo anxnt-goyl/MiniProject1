@@ -35,6 +35,14 @@ uploadArea.addEventListener('drop', e => {
     uploadBtn.disabled = false;
   }
 });
+//token
+async function loadToken() {
+  const res = await fetch(`/patient/token/${hospitalName}/${pemail}`);
+  const data = await res.json();
+
+  document.getElementById("token").textContent = "T-" + data.token;
+}
+loadToken();
 //waiting time
 async function loadWaitingTime() {
   const res = await fetch(`/patient/waiting/${hospitalName}/${pemail}`);
@@ -60,7 +68,7 @@ async function startMonitoring() {
 }
 
 
-  const res = await fetch("/calculate-pss", {
+  const res = await fetch("/patient/calculate-pss", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -73,7 +81,7 @@ async function startMonitoring() {
   document.getElementById("pss").textContent = data.pss;
   // console.log("Patient Name:", patientName);
 
-  await fetch("/api/pss", {
+  await fetch("/patient/api/pss", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"

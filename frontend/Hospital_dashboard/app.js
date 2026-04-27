@@ -8,7 +8,7 @@ async function loadPatients() {
         const res = await fetch(`/patient/by-hospital?hospital=${hospitalName}`);
         const data = await res.json();
 
-        console.log("API DATA:", data);
+        //console.log("API DATA:", data);
 
         //  MAP DB → UI FORMAT
         patients = data.map(p => {
@@ -42,7 +42,7 @@ async function loadPatients() {
     }
 }
 
-setInterval(loadPatients, 5000);
+//setInterval(loadPatients, 5000);
 
 //  ALERTS (STATIC FOR NOW)
 const alerts = [

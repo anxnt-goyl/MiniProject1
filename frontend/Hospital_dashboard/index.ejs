@@ -44,9 +44,6 @@
       <div class="live-dot"></div>
       Live Monitoring
     </div>
-    <div class="online-pill">
-      <span class="online-count" id="onlineCount">39</span> patients online
-    </div>
     <div class="nav-bell">🔔<div class="badge"></div></div>
      <button onclick="window.location.href='/'" class="btn-logout">Logout</button>
   </div>
@@ -101,7 +98,7 @@
           <div class="table-panel-title">Patient Monitoring Table</div>
           <div class="table-panel-sub" id="tableSubtitle">Showing 10 of 38 active patients</div>
         </div>
-        <button class="refresh-btn" onclick="refreshData(this)">
+        <button class="refresh-btn" onclick="loadPatients()">
           <span class="ri">↻</span> Refresh
         </button>
       </div>
@@ -144,19 +141,7 @@
     </div>
 
     
-    <div class="alerts-panel">
-      <div class="alerts-header">
-        <div>
-          <div class="alerts-title">Live Alerts</div>
-          <div class="alerts-sub">Real-time clinical notifications</div>
-        </div>
-        <div class="live-tag">
-          <div class="live-dot" style="width:6px;height:6px;background:var(--red);border-radius:50%;animation:blink 1.4s infinite;"></div>
-          Live
-        </div>
-      </div>
-      <div id="alertsList"></div>
-    </div>
+    
 
   </div>
 </div>
