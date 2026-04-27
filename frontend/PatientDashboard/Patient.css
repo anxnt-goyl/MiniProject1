@@ -53,6 +53,8 @@ nav {
   top: 0;
   z-index: 100;
 }
+ .logo { font-size: 20px; font-weight: bold; color: #031633; }
+    .logo span { color: #0b73e0; }
 .nav-brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
 .nav-logo {
   width: 40px; height: 40px; border-radius: 12px;
