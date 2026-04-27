@@ -42,7 +42,7 @@ router.get('/waiting/:hospital/:email', async (req, res) => {
   const current = await Patient.findOne({ email });
   const count = await Patient.countDocuments({
     hospital: new RegExp(`^${hospital}$`, "i"),
-    createdAt: { $lt: current.createdAt }
+    pss: {$gt: current.pss}
   });
 
   const waitingTime = count * 5;
@@ -56,7 +56,7 @@ router.get('/token/:hospital/:email', async (req, res) => {
 
   const count = await Patient.countDocuments({
     hospital: new RegExp(`^${hospital}$`, "i"),
-    createdAt: { $lt: current.createdAt }
+    pss: { $gt: current.pss }
   });
 
   const token = count + 1;

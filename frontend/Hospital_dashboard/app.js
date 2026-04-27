@@ -140,33 +140,5 @@ function applyFilters() {
   renderTable();
 }
 
-function refreshData(btn) {
-  btn.classList.add('spinning');
 
-  setTimeout(() => {
-    patients.forEach(p => {
-      const delta = Math.floor(Math.random() * 10 - 5);
-      p.pss = Math.max(0, Math.min(100, p.pss + delta));
-    });
 
-    renderStats();
-    renderTable();
-    btn.classList.remove('spinning');
-  }, 500);
-}
-
-//  ALERTS RENDER
-function renderAlerts() {
-  document.getElementById('alertsList').innerHTML = alerts.map(a => `
-    <div class="alert-item">
-      <div class="alert-tri">🔺</div>
-      <div class="alert-body">
-        <div class="alert-pid">${a.pid}</div>
-        <div class="alert-msg">${a.msg}</div>
-        <div class="alert-time">${a.time}</div>
-      </div>
-    </div>
-  `).join('');
-}
-
-renderAlerts();
