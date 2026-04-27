@@ -23,13 +23,13 @@ async function loadHospitals() {
   data.forEach(h => {
     let level = "Low";
 
-    if (h.avgDensity > 50) level = "High";
-    else if (h.avgDensity > 20) level = "Medium";
+    if (h.totalPatients > 50) level = "High";
+    else if (h.totalPatients > 20) level = "Medium";
 
     const option = document.createElement("option");
 
-    option.value = h.hospital;
-    option.textContent = `${h.hospital} (${level} crowd)`;
+    option.value = h._id;
+    option.textContent = `${h._id} (${level} crowd)`;
 if (level === "High") option.style.color = "red";
 if (level === "Medium") option.style.color = "orange";
 if (level === "Low") option.style.color = "green";
