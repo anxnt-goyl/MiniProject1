@@ -1,5 +1,5 @@
 const Patient = require('../models/Patient');
-const doctor = require('../models/doctor');
+const doctor = require('../models/Doctor');
 
 // show register page with hospitals
 async function showPatientRegister(req, res) {
@@ -18,7 +18,7 @@ function showLoginPage(req, res) {
 
 // dashboard
 function showDashboard(req, res) {
-    res.render('patientDashboard/patient');
+    res.render('PatientDashboard/Patient');
 }
 
 // register
@@ -59,7 +59,7 @@ async function login(req, res) {
             return res.status(400).send('Invalid email or password');
         }
 
-        res.render('patientDashboard/patient', { patient });
+        res.render('patientDashboard/Patient', { patient });
 
     } catch (err) {
         res.status(500).send(err.message);

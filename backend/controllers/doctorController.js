@@ -1,4 +1,4 @@
-const doctor = require('../models/doctor');
+const doctor = require('../models/Doctor');
 
 
 
