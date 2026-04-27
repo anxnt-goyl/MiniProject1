@@ -137,8 +137,10 @@
     <div class="findhospital">
       <select id="hospitalSelect" onchange="showDoctors()">
         <option value="" selected disabled>Select Your Hospital</option>
-        <option value="apollo">Apollo Hospital</option>
-        <option value="aiims">AIIMS</option>
+        <% hospitals.forEach(hospital => { %>
+                  <option value="<%= hospital %>"><%= hospital %></option>
+              <% }) %>
+        
       </select>
     </div>
 
