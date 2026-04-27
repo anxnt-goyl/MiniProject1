@@ -16,10 +16,9 @@ const connectToDatabase = require('./connection');
 const app = express();
 const PORT = 8000;
 
+app.set("views", path.join(__dirname, "../frontend"));
+app.set("view engine", "ejs");
 
-// 🔹 1. View Engine Setup
-app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, '..', 'frontend'));
 
 
 // 🔹 2. Middleware
