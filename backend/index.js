@@ -1,6 +1,8 @@
 const express = require('express');
 const path = require('path');
 const session = require('express-session');
+require('dotenv').config();
+
 
 // routes
 const homeRoutes = require('./routes/homeRoutes');
@@ -42,7 +44,7 @@ app.use("/api", densityRoutes);
 
 
 // 🔹 4. Database Connection + Server Start
-connectToDatabase('mongodb://localhost:27017/miniproject1')
+connectToDatabase(process.env.MONGO_URI)
     .then(() => {
         console.log('✅ Connected to MongoDB');
 
