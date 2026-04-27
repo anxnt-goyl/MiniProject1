@@ -7,32 +7,16 @@ async function loadPatients() {
         // const res = await fetch("/api/patients");
         const res = await fetch(`/patient/by-hospital?hospital=${hospitalName}`);
         const data = await res.json();
-
         //console.log("API DATA:", data);
 
-        //  MAP DB → UI FORMAT
-        patients = data.map(p => {
-            const pss = p.pss || 0;
+        patients = data.map(p => ({
+          _id: p._id,
+          name: p.fullName || p.name,
+          pss: Number(p.pss) || 0,
+          status: p.status,       
+          priority: p.priority     
+      }));
 
-            let status = 'stable';
-            let priority = 'LOW';
-
-            if (pss >= 71) {
-                status = 'critical';
-                priority = 'HIGH';
-            } else if (pss >= 31) {
-                status = 'monitoring';
-                priority = pss > 60 ? 'HIGH' : 'MEDIUM';
-            }
-
-            return {
-                _id:p._id,
-                name: p.fullName || p.name,
-                pss,
-                status,
-                priority
-            };
-        });
 
         renderStats();
         renderTable();
@@ -42,19 +26,12 @@ async function loadPatients() {
     }
 }
 
-//setInterval(loadPatients, 5000);
-
-//  ALERTS (STATIC FOR NOW)
-const alerts = [
-  { pid: 'ICU-04', msg: 'Respiratory distress alert', time: 'Just now' },
-  { pid: 'ICU-07', msg: 'Cardiac rhythm anomaly', time: '4 min ago' },
-  { pid: 'ICU-02', msg: 'Cardiac rhythm anomaly', time: '4 min ago' }
-];
+setInterval(loadPatients, 5000);
 
 // COLOR LOGIC
 function pssColor(pss) {
-  if (pss <= 30) return '#16a34a';
-  if (pss <= 70) return '#d97706';
+  if (pss <= 10) return '#16a34a';
+  if (pss <= 50) return '#d97706';
   return '#dc2626';
 }
 

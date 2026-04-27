@@ -11,19 +11,38 @@ router.post("/calculate-pss", (req, res) => {
   const waitingTime = 32;
   const density = 60;
 
-  const pss =
-    0.4 * waitingTime +
-    0.2 * density +
-    0.2 * temp ;
+ let pss =Math.round((0.3 * (Math.abs(bp - 120) / 120) + 0.2 * (Math.abs(temp - 98.6) / 98.6)+ 0.5 * (Math.abs(hr - 75) / 75)) * 100);
+
+  if (temp >= 102) pss += 20;
+  if (bp >= 140 || bp <= 90) pss += 15;
+  if (hr >= 100 || hr <= 60) pss += 15;
+  if (temp >= 103 && hr >= 100) pss += 25;
 
   res.json({ pss });
 });
 const Patient = require("../models/Patient");
 
 router.post("/api/pss", async (req, res) => {
-    const { ptemail, pss, status } = req.body;
+    const { ptemail, pss } = req.body;
+    console.log("NEW LOGIC RUNNING");
 
-    console.log("DATA RECEIVED:", req.body);
+  console.log("DATA RECEIVED:", req.body);
+   let status = 'stable';
+            let priority = 'LOW';
+
+            if (pss >= 50) {
+              status = 'critical';
+              priority = 'HIGH';
+            } else if (pss >= 25) {
+              status = 'monitoring';
+              priority = 'HIGH';
+            } else if (pss >= 10) {
+              status = 'monitoring';
+              priority = 'MEDIUM';
+            } else {
+              status = 'stable';
+              priority = 'LOW';
+            }
 
     const updated = await Patient.findOneAndUpdate(
         { email : ptemail },

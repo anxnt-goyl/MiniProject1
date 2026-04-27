@@ -89,7 +89,6 @@ async function startMonitoring() {
     body: JSON.stringify({
       ptemail : pemail,
       pss: data.pss,
-      status: "Monitoring"
     })
   });
 };
