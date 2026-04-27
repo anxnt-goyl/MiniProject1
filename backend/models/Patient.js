@@ -63,7 +63,11 @@ const patientDataSchema = new mongoose.Schema({
   status: {
     type: String,
     default: "active"
-  }
+  },
+  priority: {
+  type: String,
+  default: 'LOW'
+}
 
 }, { timestamps: true });
 

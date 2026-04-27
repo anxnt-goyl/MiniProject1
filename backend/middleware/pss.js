@@ -46,7 +46,7 @@ router.post("/api/pss", async (req, res) => {
 
     const updated = await Patient.findOneAndUpdate(
         { email : ptemail },
-        { pss, status },
+        { pss, status , priority},
         { returnDocument: 'after' }
     );
 
