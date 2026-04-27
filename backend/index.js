@@ -6,6 +6,7 @@ const session = require('express-session');
 const homeRoutes = require('./routes/homeRoutes');
 const patientRoutes = require('./routes/patientRoutes');
 const doctorRoutes = require('./routes/doctorRoutes');
+const densityRoutes = require('./routes/densityRoutes');
 const pss = require('./middleware/pss');
 // database
 const connectToDatabase = require('./connection');
@@ -37,6 +38,7 @@ app.use("/patient", pss);
 app.use('/', homeRoutes);
 app.use('/patient', patientRoutes);
 app.use('/hospital', doctorRoutes);
+app.use("/api", densityRoutes);
 
 
 // 🔹 4. Database Connection + Server Start

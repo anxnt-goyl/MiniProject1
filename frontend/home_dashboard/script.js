@@ -13,30 +13,31 @@
         }
      ]
     };
+async function loadHospitals() {
+  const res = await fetch("/api/avg-density");
+  const data = await res.json();
 
-function showDoctors() {
-    const hospital = document.getElementById("hospitalSelect").value;
-    const container = document.getElementById("doctorContainer");
+  const select = document.getElementById("hospitalSelect");
+  select.innerHTML = `<option disabled selected>Select Your Hospital</option>`;
 
-    container.innerHTML = "";
+  data.forEach(h => {
+    let level = "Low";
 
-    if (!doctors[hospital]) return;
+    if (h.avgDensity > 50) level = "High";
+    else if (h.avgDensity > 20) level = "Medium";
 
-    doctors[hospital].forEach(doc => {
-        container.innerHTML += `
-            <div class="card">
-                <h3>
-                    ${doc.name}
-                    <span class="status ${doc.status}"></span>
-                </h3>
-                <p>${doc.degree}</p>
-                <p>${doc.desc}</p>
-                <p>${doc.rating}</p>
-            </div>
-        `;
-    });
+    const option = document.createElement("option");
+
+    option.value = h.hospital;
+    option.textContent = `${h.hospital} (${level} crowd)`;
+if (level === "High") option.style.color = "red";
+if (level === "Medium") option.style.color = "orange";
+if (level === "Low") option.style.color = "green";
+    select.appendChild(option);
+  });
 }
-
+loadHospitals();
+setInterval(loadHospitals, 5000);
     // ── Team data ──
     const team = [
       { name: "Arpita Patra",    role: "Frontend Developer", initials: "AP" },

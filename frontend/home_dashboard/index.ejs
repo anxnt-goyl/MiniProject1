@@ -135,11 +135,8 @@
     <p class="section-sub">Explore doctors by specialization and reach out with one click.</p>
 
     <div class="findhospital">
-      <select id="hospitalSelect" onchange="showDoctors()">
+      <select id="hospitalSelect">
         <option value="" selected disabled>Select Your Hospital</option>
-        <% hospitals.forEach(hospital => { %>
-                  <option value="<%= hospital %>"><%= hospital %></option>
-              <% }) %>
         
       </select>
     </div>
