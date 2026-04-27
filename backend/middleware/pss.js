@@ -28,7 +28,7 @@ router.post("/api/pss", async (req, res) => {
 
   console.log("DATA RECEIVED:", req.body);
    let status = 'stable';
-            let priority = 'LOW';
+            let priority;
 
             if (pss >= 50) {
               status = 'critical';
