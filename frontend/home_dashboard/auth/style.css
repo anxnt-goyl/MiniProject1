@@ -5,7 +5,7 @@
   --card: rgba(255, 255, 255, 0.92);
   --text: #0f172a;
   --muted: #5b6475;
-  --border: rgba(148, 163, 184, 0.45);
+  --border: rgba(176, 204, 242, 0.45);
   --shadow: 0 22px 55px rgba(15, 23, 42, 0.12);
   --radius: 22px;
 }
@@ -41,7 +41,7 @@ a:hover {
   padding: 34px 16px;
   background:
     radial-gradient(circle at 20% 10%, rgba(0, 82, 73, 0.12), transparent 55%),
-    radial-gradient(circle at 80% 20%, rgba(16, 185, 129, 0.1), transparent 55%),
+    radial-gradient(circle at 80% 20%, rgba(29, 191, 227, 0.1), transparent 55%),
     radial-gradient(circle at 40% 90%, rgba(12, 107, 96, 0.08), transparent 60%),
     linear-gradient(180deg, #f4f8f7, #eef5f4);
 }
