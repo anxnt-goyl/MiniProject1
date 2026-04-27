@@ -59,7 +59,7 @@ async function login(req, res) {
             return res.status(400).send('Invalid email or password');
         }
 
-        res.render('patientDashboard/Patient', { patient });
+        res.render('PatientDashboard/Patient', { patient });
 
     } catch (err) {
         res.status(500).send(err.message);
