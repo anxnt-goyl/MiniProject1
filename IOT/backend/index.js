@@ -35,7 +35,7 @@ app.post("/start-measurement", (req, res) => {
   res.json({ message: "Measurement started" });
 });
 app.get("/", (req, res) => {
-  res.send("Meditrack Backend Running 🚀");
+  res.send("Meditrack Backend Running ");
 });
 
 app.get("/get-data", async (req, res) => {

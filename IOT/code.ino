@@ -1,10 +1,7 @@
-#define TRIG1 12   // Entry sensor TRIG
-#define ECHO1 26   // Entry sensor ECHO
-
-#define TRIG2 13   // Exit sensor TRIG
-#define ECHO2 25   // Exit sensor ECHO
-
-// #define LED_PIN 14 // LED pin
+#define TRIG1 12
+#define ECHO1 26
+#define TRIG2 13
+#define ECHO2 25
 
 long duration1, duration2;
 float distance1, distance2;
@@ -13,26 +10,18 @@ int entryCount = 0;
 int exitCount = 0;
 
 int state = 0; 
-// 0 = idle
-// 1 = sensor1 triggered
-// 2 = sensor2 triggered
-
 void setup() {
   Serial.begin(115200);
 
   pinMode(TRIG1, OUTPUT);
   pinMode(ECHO1, INPUT);
-
   pinMode(TRIG2, OUTPUT);
   pinMode(ECHO2, INPUT);
-
-  // pinMode(LED_PIN, OUTPUT);
-  // digitalWrite(LED_PIN, LOW);
 }
 
 void loop() {
 
-  // -------- SENSOR 1 --------
+  //sensor1
   digitalWrite(TRIG1, LOW);
   delayMicroseconds(2);
   digitalWrite(TRIG1, HIGH);
@@ -42,9 +31,9 @@ void loop() {
   duration1 = pulseIn(ECHO1, HIGH, 30000);
   distance1 = duration1 * 0.034 / 2;
 
-  delay(100); // 🔥 IMPORTANT (avoid interference)
+  delay(100);
 
-  // -------- SENSOR 2 --------
+  //sensor2
   digitalWrite(TRIG2, LOW);
   delayMicroseconds(2);
   digitalWrite(TRIG2, HIGH);
@@ -53,14 +42,12 @@ void loop() {
 
   duration2 = pulseIn(ECHO2, HIGH, 30000);
   distance2 = duration2 * 0.034 / 2;
+  // Serial.print("D1: ");
+  // Serial.print(distance1);
+  // Serial.print("|D2: ");
+  // Serial.println(distance2);
 
-  // -------- DEBUG --------
-  Serial.print("D1: ");
-  Serial.print(distance1);
-  Serial.print(" | D2: ");
-  Serial.println(distance2);
-
-  // -------- ENTRY LOGIC --------
+//entry
   if (distance1 < 50 && state == 0) {
     state = 1;
   }
@@ -71,25 +58,15 @@ void loop() {
     Serial.println(entryCount);
     state = 0;
   }
-
-  // -------- EXIT LOGIC --------
+//exit
   if (distance2 < 50 && state == 0) {
     state = 2;
   }
-
   if (distance1 < 50 && state == 2) {
     exitCount++;
     Serial.print("EXIT! Count: ");
     Serial.println(exitCount);
     state = 0;
   }
-
-  // -------- LED LOGIC --------
-  // if (entryCount >= 50) {
-  //   digitalWrite(LED_PIN, HIGH);
-  // } else {
-  //   digitalWrite(LED_PIN, LOW);
-  // }
-
   delay(100);
 }
